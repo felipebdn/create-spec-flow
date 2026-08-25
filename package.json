@@ -1,6 +1,6 @@
 {
   "name": "create-spec-flow",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Spec-driven development for coding agents, in one command. A queue of specified changes, a readiness gate before any file is written, size ceilings on what gets re-read every session, and guarantees proven by sabotage. pt-BR and English.",
   "keywords": [
     "spec-driven-development",
