@@ -32,7 +32,11 @@ async function citedPaths(root, files) {
     const texto = await readFile(join(root, rel), 'utf8');
     for (const [, caminho] of texto.matchAll(/`(\.specs\/[^`\s]+|\.claude\/[^`\s]+)`/g)) {
       const limpo = caminho.replace(/[.,;:]+$/, '');
-      if (!limpo.endsWith('/')) citados.push({ de: rel, caminho: limpo });
+      // `NNN-slug`, `<area>` e afins são **espaço reservado**, não caminho: o template mostra a
+      // forma de um caminho que só existe no projeto de quem instala. Conferir a existência deles
+      // aqui exigiria criar uma mudança de mentira dentro do template.
+      const reservado = /NNN|<[^>]+>|\.\.\./.test(limpo);
+      if (!limpo.endsWith('/') && !reservado) citados.push({ de: rel, caminho: limpo });
     }
   }
   return citados;

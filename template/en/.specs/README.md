@@ -25,7 +25,8 @@ its context by reading this directory.
 .specs/changes/007-idea-registration/
 ├── spec.md    # WHAT and WHY — requirements and acceptance criteria. No code.
 ├── plan.md    # HOW — files touched, technical sequence, risks.
-└── tasks.md   # EXECUTION — tickable checklist, plus the sabotage record.
+├── tasks.md   # EXECUTION — tickable checklist, plus the sabotage record.
+└── walkthrough.md  # CLOSING — risk-ordered synthesis, written when closing.
 ```
 
 `tasks.md` is the only one of the three written **during** the work. It holds the sabotage record:
@@ -89,4 +90,5 @@ The skills in `.claude/skills/` are the operational "how to" of this flow:
 - `spec-archive-change` — moves a finished change and promotes what it learned.
 - `spec-ceilings-and-pruning` — the size ceilings and the pruning discipline.
 - `spec-new-skill` — freezes a repeating pattern into a new skill.
+- `spec-change-walkthrough` — writes the closing walkthrough, ordered by risk.
 - `spec-adopt-context` — brings context that already exists into `.specs/`, without losing anything.

@@ -26,7 +26,8 @@ reconstrói todo o contexto lendo este diretório.
 .specs/changes/007-cadastro-de-ideia/
 ├── spec.md    # O QUÊ e o PORQUÊ — requisitos e critérios de aceite. Sem código.
 ├── plan.md    # O COMO — arquivos tocados, sequência técnica, riscos.
-└── tasks.md   # A EXECUÇÃO — checklist marcável, mais o registro de sabotagem.
+├── tasks.md   # A EXECUÇÃO — checklist marcável, mais o registro de sabotagem.
+└── walkthrough.md  # O FECHAMENTO — síntese ordenada por risco, escrita ao fechar.
 ```
 
 O `tasks.md` é o único dos três que se escreve **durante** o trabalho. É lá que fica o registro de
@@ -90,4 +91,5 @@ As skills em `.claude/skills/` são o "como fazer" operacional deste fluxo:
 - `spec-arquivar-mudanca` — move a mudança concluída e registra o aprendizado.
 - `spec-tetos-e-poda` — os tetos de tamanho e a disciplina de poda.
 - `spec-nova-skill` — congela um padrão que se repete numa skill nova.
+- `spec-walkthrough-mudanca` — escreve o walkthrough de fechamento, ordenado por risco.
 - `spec-adotar-contexto` — traz contexto que já existe para dentro do `.specs/`, sem perder nada.

@@ -88,6 +88,9 @@ Only with every acceptance criterion ticked:
 - **Execution notes** in `tasks.md`: deviations, assumptions, surprises.
 - A new decision that `spec.md` did not anticipate goes into `.specs/memory/decisions.md`.
 - A contract the next change will consume is promoted to `.specs/shared/`.
+- **Write the walkthrough** with the `spec-change-walkthrough` skill. It is where the change becomes
+  legible to whoever did not implement it — and where incoherence left by a fix shows up, because
+  explaining is a different lens from auditing.
 - `status: done` in `spec.md`.
 - Do not archive. Archiving is the user's decision, through `spec-archive-change`.
 

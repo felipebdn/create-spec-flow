@@ -18,6 +18,7 @@ Do not archive without all of these:
 - [ ] Every acceptance criterion ticked.
 - [ ] Every task in `tasks.md` ticked.
 - [ ] Every guarantee either sabotaged with named tests, or declared without a round and with a reason.
+- [ ] `walkthrough.md` written, with a risk-ordered review and measured verification.
 - [ ] No open question pending.
 - [ ] No other `todo` change declares `depends_on` on this one and still needs to consult it actively
       (archiving does not break the dependency, but confirm the dependent already has the contract it

@@ -18,6 +18,7 @@ Não arquive sem todas estas:
 - [ ] Todos os critérios de aceite marcados.
 - [ ] Todas as tarefas do `tasks.md` marcadas.
 - [ ] Toda garantia ou sabotada com teste nomeado, ou declarada sem rodada e com o motivo.
+- [ ] `walkthrough.md` escrito, com ordem de revisão por risco e verificação medida.
 - [ ] Nenhuma questão em aberto pendente.
 - [ ] Nenhuma outra mudança em `todo` declara `depende_de` esta e ainda precisa
       consultá-la ativamente (arquivar não quebra a dependência, mas confirme que

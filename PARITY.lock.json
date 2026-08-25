@@ -13,13 +13,13 @@
     },
     ".claude/skills/spec-arquivar-mudanca/SKILL.md": {
       "en": ".claude/skills/spec-archive-change/SKILL.md",
-      "ptSha": "de4d5574e5d694f6",
-      "enSha": "18958145e1ca14ca"
+      "ptSha": "0559aa6c7228a3c3",
+      "enSha": "448794c4b85b4846"
     },
     ".claude/skills/spec-executar-mudanca/SKILL.md": {
       "en": ".claude/skills/spec-run-change/SKILL.md",
-      "ptSha": "e04b9fb4934468e3",
-      "enSha": "596bb249062c34ca"
+      "ptSha": "8ea95498bf3a6789",
+      "enSha": "259acac5741185bc"
     },
     ".claude/skills/spec-nova-mudanca/SKILL.md": {
       "en": ".claude/skills/spec-new-change/SKILL.md",
@@ -41,6 +41,11 @@
       "ptSha": "b25198e2a1690842",
       "enSha": "2555b0ffc68381bb"
     },
+    ".claude/skills/spec-walkthrough-mudanca/SKILL.md": {
+      "en": ".claude/skills/spec-change-walkthrough/SKILL.md",
+      "ptSha": "1f262fe05d6f7364",
+      "enSha": "d1d024cbbe63ae9e"
+    },
     ".specs/EXECUTAR-TODAS.md": {
       "en": ".specs/RUN-ALL.md",
       "ptSha": "b6ced9fbdd6cd759",
@@ -48,8 +53,8 @@
     },
     ".specs/README.md": {
       "en": ".specs/README.md",
-      "ptSha": "6430bdd6b8707734",
-      "enSha": "e4af6ebeba5a028a"
+      "ptSha": "d8db0fa4750aa6fd",
+      "enSha": "efd94623e90d575d"
     },
     ".specs/archive/README.md": {
       "en": ".specs/archive/README.md",
@@ -103,8 +108,8 @@
     },
     "CLAUDE.md": {
       "en": "CLAUDE.md",
-      "ptSha": "12e1d3174bcca85d",
-      "enSha": "6e2712b4a4793c38"
+      "ptSha": "a49ca92c757bd6fd",
+      "enSha": "22cd56ed00ffba45"
     }
   }
 }

@@ -37,6 +37,7 @@ export const ROLE_NAMES = [
   ['spec-tetos-e-poda', 'spec-ceilings-and-pruning'],
   ['spec-nova-skill', 'spec-new-skill'],
   ['spec-adotar-contexto', 'spec-adopt-context'],
+  ['spec-walkthrough-mudanca', 'spec-change-walkthrough'],
   ['spec-adotar-contexto', 'spec-adopt-context'],
 ];
 

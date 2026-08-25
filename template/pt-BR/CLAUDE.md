@@ -49,6 +49,7 @@ Leia, nesta ordem:
 | Implementar uma mudança | skill `spec-executar-mudanca` |
 | Rodar a fila inteira | `Siga @.specs/EXECUTAR-TODAS.md` |
 | Auditar o que foi feito | skill `spec-verificar-mudanca` |
+| Escrever o walkthrough de fechamento | skill `spec-walkthrough-mudanca` |
 | Fechar mudança concluída | skill `spec-arquivar-mudanca` |
 | Congelar um padrão que se repete | skill `spec-nova-skill` |
 | Adotar o fluxo com contexto que já existe | skill `spec-adotar-contexto` |

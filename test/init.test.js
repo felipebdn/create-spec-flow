@@ -44,6 +44,7 @@ describe('init — o caminho comum', () => {
       'spec-tetos-e-poda',
       'spec-nova-skill',
       'spec-adotar-contexto',
+      'spec-walkthrough-mudanca',
     ]) {
       assert.ok(
         written.includes(`.claude/skills/${skill}/SKILL.md`),
@@ -208,7 +209,7 @@ describe('linha de comando — as duas formas de invocação', () => {
     const { code, stdout } = await run([alvo, '--yes']);
 
     assert.equal(code, 0, `saiu ${code}: ${stdout}`);
-    assert.match(stdout, /21 arquivo\(s\) escritos/);
+    assert.match(stdout, /22 arquivo\(s\) escritos/);
     await readFile(join(alvo, 'CLAUDE.md'), 'utf8');
   });
 

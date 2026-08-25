@@ -90,6 +90,9 @@ Só com todos os critérios de aceite marcados:
 - **Notas de execução** no `tasks.md`: desvios, suposições, surpresas.
 - Decisão nova que o `spec.md` não previa vai para `.specs/memory/decisoes.md`.
 - Contrato que a próxima mudança vai consumir sobe para `.specs/shared/`.
+- **Escreva o walkthrough** pela skill `spec-walkthrough-mudanca`. É onde a mudança vira legível
+  para quem não a implementou — e onde incoerência deixada por correção aparece, porque explicar é
+  lente diferente de auditar.
 - `status: done` no `spec.md`.
 - Não arquive. Arquivamento é decisão do usuário, via `spec-arquivar-mudanca`.
 

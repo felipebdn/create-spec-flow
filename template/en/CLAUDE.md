@@ -47,6 +47,7 @@ Read, in this order:
 | Implement one change | `spec-run-change` skill |
 | Run the whole queue | `Follow @.specs/RUN-ALL.md` |
 | Audit what was done | `spec-verify-change` skill |
+| Write the closing walkthrough | `spec-change-walkthrough` skill |
 | Close a finished change | `spec-archive-change` skill |
 | Freeze a repeating pattern | `spec-new-skill` skill |
 | Adopt the flow with context that already exists | `spec-adopt-context` skill |
