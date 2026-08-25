@@ -1,7 +1,7 @@
 {
   "name": "specflow",
   "version": "0.1.0",
-  "description": "Instancia um fluxo de desenvolvimento guiado por especificação — .specs/, skills de padrão e portão de prontidão — em qualquer projeto.",
+  "description": "Spec-driven development for coding agents, in one command. A queue of specified changes, a readiness gate before any file is written, size ceilings on what gets re-read every session, and guarantees proven by sabotage. pt-BR and English.",
   "keywords": [
     "spec-driven-development",
     "sdd",
@@ -11,6 +11,15 @@
     "specification"
   ],
   "license": "MIT",
+  "author": "Felipe Barbosa (https://github.com/felipebdn)",
+  "homepage": "https://github.com/felipebdn/specflow#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipebdn/specflow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/felipebdn/specflow/issues"
+  },
   "type": "module",
   "engines": {
     "node": ">=20.10"
