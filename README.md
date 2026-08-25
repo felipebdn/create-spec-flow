@@ -14,9 +14,9 @@ Contexto de agente morre no fim da sessão. Na sessão seguinte, a decisão que 
 minutos não existe mais, e o agente reconstrói por adivinhação — geralmente diferente. Ao longo de
 dez features, a arquitetura deriva sem ninguém ter decidido que devia derivar.
 
-O `create-spec-flow` põe esse contexto em arquivo, com regras que impedem os três jeitos conhecidos de o
-registro apodrecer: spec escrita sem perguntar, arquivo crescendo até ninguém ler, e critério de
-aceite marcado sem ter sido verificado.
+O fluxo que este pacote instala põe esse contexto em arquivo, com regras que impedem os três jeitos
+conhecidos de o registro apodrecer: spec escrita sem perguntar, arquivo crescendo até ninguém ler, e
+critério de aceite marcado sem ter sido verificado.
 
 ## O que ele escreve no seu projeto
 
