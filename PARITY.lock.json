@@ -8,18 +8,18 @@
     },
     ".claude/skills/spec-arquivar-mudanca/SKILL.md": {
       "en": ".claude/skills/spec-archive-change/SKILL.md",
-      "ptSha": "05b787f4f6d33aac",
-      "enSha": "cfe6cee72ad0d503"
+      "ptSha": "de4d5574e5d694f6",
+      "enSha": "18958145e1ca14ca"
     },
     ".claude/skills/spec-executar-mudanca/SKILL.md": {
       "en": ".claude/skills/spec-run-change/SKILL.md",
-      "ptSha": "b5114c838e83923b",
-      "enSha": "aec8afdfaa8064d0"
+      "ptSha": "e04b9fb4934468e3",
+      "enSha": "596bb249062c34ca"
     },
     ".claude/skills/spec-nova-mudanca/SKILL.md": {
       "en": ".claude/skills/spec-new-change/SKILL.md",
-      "ptSha": "dccb30e7d6b409c2",
-      "enSha": "9ed3459d10639e09"
+      "ptSha": "8f4f0ccff9b70a37",
+      "enSha": "e7dc65f3d0ee6b2e"
     },
     ".claude/skills/spec-nova-skill/SKILL.md": {
       "en": ".claude/skills/spec-new-skill/SKILL.md",
@@ -28,8 +28,8 @@
     },
     ".claude/skills/spec-tetos-e-poda/SKILL.md": {
       "en": ".claude/skills/spec-ceilings-and-pruning/SKILL.md",
-      "ptSha": "4f62869ecaed946b",
-      "enSha": "6416551608b9422f"
+      "ptSha": "4f56aa01e60d1e38",
+      "enSha": "21ea53f49272b388"
     },
     ".claude/skills/spec-verificar-mudanca/SKILL.md": {
       "en": ".claude/skills/spec-verify-change/SKILL.md",
@@ -38,13 +38,13 @@
     },
     ".specs/EXECUTAR-TODAS.md": {
       "en": ".specs/RUN-ALL.md",
-      "ptSha": "238036f9ba077f49",
-      "enSha": "62c2b9d5053fe9d8"
+      "ptSha": "b6ced9fbdd6cd759",
+      "enSha": "391cf7c8e87de363"
     },
     ".specs/README.md": {
       "en": ".specs/README.md",
-      "ptSha": "38b1e9c92788e4d7",
-      "enSha": "42adb81cb7d49375"
+      "ptSha": "f4bbffcc3560bbe7",
+      "enSha": "6349579426122fc2"
     },
     ".specs/archive/README.md": {
       "en": ".specs/archive/README.md",
@@ -55,6 +55,11 @@
       "en": ".specs/changes/README.md",
       "ptSha": "77be0a792b937c8b",
       "enSha": "7de010bc00cc51ee"
+    },
+    ".specs/domain/README.md": {
+      "en": ".specs/domain/README.md",
+      "ptSha": "37f0e1b9f418984c",
+      "enSha": "4a354009d22ddbe1"
     },
     ".specs/memory/decisoes.md": {
       "en": ".specs/memory/decisions.md",
@@ -93,8 +98,8 @@
     },
     "CLAUDE.md": {
       "en": "CLAUDE.md",
-      "ptSha": "fe5399f65cfa7d38",
-      "enSha": "f2ee5a14551b698d"
+      "ptSha": "f31578424bd8cb35",
+      "enSha": "2dbce2a1aac6975b"
     }
   }
 }

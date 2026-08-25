@@ -34,6 +34,15 @@ os dois campos que fazem a mudança se sustentar sozinha; cortá-los custa um ci
 inteiro, não algumas linhas. Se o `spec.md` está grande, o excesso quase sempre é prosa já dita em
 outro lugar, ou escopo que pertence a outra mudança.
 
+## `.specs/domain/` não tem teto, e isso é decisão, não esquecimento
+
+O teto existe porque o arquivo é lido em **toda** sessão. `domain/` é lido **seletivamente** — só o
+domínio que a mudança toca —, então o tamanho dele não é imposto a todo trabalho futuro. Um arquivo
+de domínio com 300 linhas custa nas poucas mudanças que o tocam, e nada nas outras.
+
+A contrapartida é a disciplina de leitura: quem lê `domain/` inteiro "por garantia" reintroduz
+exatamente o custo que a isenção pressupõe que não existe.
+
 ## A poda do `memory/`
 
 `decisoes.md` e `stack.md` são lidos em **toda** mudança e escritos em poucas.

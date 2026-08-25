@@ -16,6 +16,11 @@ In this order:
 3. `spec.md`, `plan.md`, `tasks.md` of the change.
 4. The skills named in `plan.md`.
 
+**Do not open `.specs/domain/`.** Planning already distilled into the spec the rule that governs
+this change, and re-reading the domain on every run undoes that saving. If something essential is
+missing from the spec, that is a distillation failure, not an invitation to open the domain: treat
+it as major drift, stop, and propose fixing the spec.
+
 **Check the size of `memory/` — `wc -l`, nothing more.** Over the ceiling, **warn in the final
 summary** that pruning is due in the next `spec-new-change`. **Pruning is not your job**, and
 checking is — the numbers and the reason for the asymmetry are in the `spec-ceilings-and-pruning`

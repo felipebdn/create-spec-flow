@@ -16,6 +16,11 @@ Nesta ordem:
 3. `spec.md`, `plan.md`, `tasks.md` da mudança.
 4. As skills citadas no `plan.md`.
 
+**Não abra `.specs/domain/`.** O planejamento já destilou dentro da spec a regra que governa esta
+mudança, e reler o domínio a cada execução desfaz essa economia. Se algo essencial faltar na spec,
+isso é falha de destilação, não convite para abrir o domínio: trate como drift maior, pare, e
+proponha corrigir a spec.
+
 **Confira o tamanho do `memory/` — `wc -l`, nada além disso.** Passou do teto, **avise no resumo
 final** que a poda vence na próxima `spec-nova-mudanca`. **Podar não é sua função**, e conferir é —
 os números e o porquê da assimetria estão na skill `spec-tetos-e-poda`.

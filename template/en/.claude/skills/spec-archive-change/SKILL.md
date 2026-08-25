@@ -33,7 +33,10 @@ This is the step that gives archiving its value. Before moving, extract what out
    `.specs/memory/decisions.md`, with the date, the discarded alternative and the reason.
 2. **Contracts** — a signature, an error shape, a schema another change will consume is promoted to
    `.specs/shared/`.
-3. **Vocabulary** — a new domain term goes into `.specs/shared/glossary.md`.
+3. **Domain rule** — a rule that now holds beyond this change is promoted to that domain's file
+   under `.specs/domain/`, creating the file if it does not exist. A new invariant gets a number,
+   and that number is frozen from then on.
+4. **Vocabulary** — a new domain term goes into `.specs/shared/glossary.md`.
 4. **Stack** — a new dependency goes into `.specs/memory/stack.md`.
 5. **A repeated pattern** — if the implementation produced a mold that will repeat, suggest creating
    a skill under `.claude/skills/`. Suggest; do not create without approval.

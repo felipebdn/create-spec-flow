@@ -207,7 +207,7 @@ describe('linha de comando — as duas formas de invocação', () => {
     const { code, stdout } = await run([alvo, '--yes']);
 
     assert.equal(code, 0, `saiu ${code}: ${stdout}`);
-    assert.match(stdout, /19 arquivo\(s\) escritos/);
+    assert.match(stdout, /20 arquivo\(s\) escritos/);
     await readFile(join(alvo, 'CLAUDE.md'), 'utf8');
   });
 

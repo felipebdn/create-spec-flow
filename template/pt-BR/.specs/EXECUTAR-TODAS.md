@@ -14,6 +14,10 @@ Leia, nesta ordem, e não comece nada antes de terminar a leitura:
 3. `.specs/shared/` — convenções e contratos que todas as mudanças respeitam.
 4. `CLAUDE.md` na raiz, se existir.
 
+**`.specs/domain/` é seletivo.** Leia **só o arquivo do domínio que a mudança toca**, escolhido pelo
+nome. Um projeto pode ter sete; ler todos em toda mudança é o desperdício que a separação em arquivos
+existe para evitar, e é o motivo de essa camada não ter teto.
+
 **Confira o tamanho do `memory/` ao ler** — `wc -l` em `decisoes.md` e `stack.md`, contra o teto da
 skill `spec-tetos-e-poda`. Passou de qualquer um, **registre no relatório final** que a poda vence
 na próxima `spec-nova-mudanca`. **Não pode aqui.**

@@ -15,6 +15,7 @@ its context by reading this directory.
 | `archive/` | Changes that are finished and verified. They leave the active queue but stay readable as a record of decisions. |
 | `memory/` | Context that spans changes: architectural decisions, chosen stack, constraints. |
 | `shared/` | Contracts and conventions several changes consume: naming, error shape, domain glossary. |
+| `domain/` | Product rules per domain, plus invariants and formulas. **Read selectively** — only the domain the change touches — and therefore with no ceiling. |
 | `templates/` | Molds for `spec.md`, `plan.md` and `tasks.md`. Every new change is born from these. |
 | `RUN-ALL.md` | The orchestrator. Runs the whole queue in order, validating between changes. |
 

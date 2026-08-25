@@ -34,7 +34,10 @@ sobrevive à mudança:
    `.specs/memory/decisoes.md`, com data, alternativa descartada e motivo.
 2. **Contratos** — assinatura, formato de erro, schema que outra mudança vai
    consumir sobe para `.specs/shared/`.
-3. **Vocabulário** — termo de domínio novo entra em `.specs/shared/glossario.md`.
+3. **Regra de domínio** — regra que passa a valer além desta mudança sobe para o arquivo do domínio
+   em `.specs/domain/`, criando o arquivo se ele não existir. Invariante nova ganha número, e o
+   número é congelado a partir daí.
+4. **Vocabulário** — termo de domínio novo entra em `.specs/shared/glossario.md`.
 4. **Stack** — dependência nova entra em `.specs/memory/stack.md`.
 5. **Padrão repetido** — se a implementação criou um molde que vai se repetir,
    sugira criar uma skill em `.claude/skills/`. Sugira; não crie sem aprovação.

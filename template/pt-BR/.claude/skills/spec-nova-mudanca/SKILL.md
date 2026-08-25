@@ -17,7 +17,10 @@ Leia, para não especificar contra o que já existe:
 
 1. `.specs/memory/` — stack e decisões já fechadas.
 2. `.specs/shared/` — convenções e glossário. Use o vocabulário de lá.
-3. `.specs/changes/` — a fila atual, para descobrir o próximo número e para
+3. `.specs/domain/` — **só o domínio que a mudança toca**. É de lá que sai a regra de produto que a
+   spec precisa **destilar por extenso**: quem implementa não vai abrir `domain/`, e
+   "conforme o domínio de crédito" não sobrevive à troca de sessão.
+4. `.specs/changes/` — a fila atual, para descobrir o próximo número e para
    detectar sobreposição com uma mudança já especificada.
 
 Se o pedido se sobrepõe a uma mudança existente que ainda está `todo`, proponha

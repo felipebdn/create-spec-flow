@@ -16,6 +16,7 @@ reconstrói todo o contexto lendo este diretório.
 | `archive/` | Mudanças concluídas e verificadas. Saem da fila ativa, mas continuam legíveis como histórico de decisões. |
 | `memory/` | Contexto que atravessa mudanças: decisões arquiteturais, stack escolhida, restrições. |
 | `shared/` | Contratos e convenções que várias mudanças consomem: nomenclatura, formato de erro, glossário de domínio. |
+| `domain/` | Regra de produto por domínio, mais invariantes e fórmulas. **Lido seletivamente** — só o domínio que a mudança toca — e por isso sem teto. |
 | `templates/` | Moldes de `spec.md`, `plan.md` e `tasks.md`. Toda mudança nova nasce daqui. |
 | `EXECUTAR-TODAS.md` | Orquestrador. Roda a fila inteira em ordem, com validação entre mudanças. |
 

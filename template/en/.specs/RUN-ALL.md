@@ -14,6 +14,10 @@ Read, in this order, and start nothing before finishing the reading:
 3. `.specs/shared/` — conventions and contracts every change respects.
 4. `CLAUDE.md` at the root, if it exists.
 
+**`.specs/domain/` is selective.** Read **only the file for the domain the change touches**, picked
+by name. A project may have seven; reading all of them on every change is the waste that splitting
+them into files exists to avoid, and it is why this layer has no ceiling.
+
 **Check the size of `memory/` as you read it** — `wc -l` on `decisions.md` and `stack.md`, against
 the ceiling in the `spec-ceilings-and-pruning` skill. Over either one, **record in the final report**
 that pruning is due in the next `spec-new-change`. **Do not prune here.**

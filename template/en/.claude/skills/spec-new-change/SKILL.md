@@ -17,7 +17,10 @@ Read, so you do not specify against what already exists:
 
 1. `.specs/memory/` — the stack and the settled decisions.
 2. `.specs/shared/` — conventions and glossary. Use the vocabulary from there.
-3. `.specs/changes/` — the current queue, to find the next number and to spot overlap with a change
+3. `.specs/domain/` — **only the domain the change touches**. That is where the product rule comes
+   from, and the spec has to **distill it in full**: whoever implements will not open `domain/`, and
+   "per the credit domain" does not survive a change of session.
+4. `.specs/changes/` — the current queue, to find the next number and to spot overlap with a change
    that is already specified.
 
 If the request overlaps a change that is still `todo`, propose editing that one instead of creating a

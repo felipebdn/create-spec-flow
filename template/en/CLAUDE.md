@@ -10,6 +10,7 @@ Read, in this order:
 2. `.specs/memory/stack.md` — allowed technologies and commands.
 3. `.specs/memory/decisions.md` — architectural decisions already settled.
 4. `.specs/shared/` — code conventions and the domain glossary.
+5. `.specs/domain/` — **only the domain the task touches**, when there is one.
 
 ## Rules
 

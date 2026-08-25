@@ -27,6 +27,7 @@ CLAUDE.md          as regras que todo agente lê primeiro
 ├── archive/       o que já fechou, legível como histórico
 ├── memory/        decisões arquiteturais e stack — o que atravessa mudanças
 ├── shared/        convenções de código e glossário de domínio
+├── domain/        regra de produto por domínio — lida seletivamente, sem teto
 ├── templates/     os moldes de spec.md, plan.md e tasks.md
 └── EXECUTAR-TODAS.md   o orquestrador da fila
 .claude/skills/    as seis skills do fluxo
@@ -45,10 +46,14 @@ para você **e** respondida: o que ainda está vago, o que o agente inferiu em s
 contexto do projeto, e qual vocabulário ele ia inventar. Não é pulável nem quando o pedido parece
 óbvio — aí ela é curta, não ausente.
 
-**Teto em todo arquivo que é sempre lido.** `spec.md` vai até ~600 linhas ou ~10 critérios de aceite;
-`memory/` até ~150 linhas por arquivo. Estourou, parte a mudança ou poda a memória. A poda acontece
-na leitura, e só na skill de planejamento — quem executa confere e avisa, porque escolher o que sai
-exige contexto que quem executa não tem.
+**O custo de leitura decide onde a coisa mora.** Arquivo lido em toda sessão impõe o próprio tamanho
+a todo trabalho futuro, então tem teto: `spec.md` até ~600 linhas ou ~10 critérios de aceite,
+`memory/` e `shared/` até ~150 linhas. Estourou, parte a mudança ou poda a memória — na leitura, e só
+na skill de planejamento, porque escolher o que sai exige contexto que quem executa não tem.
+
+Regra de produto não cabe nesse teto, e por isso mora em `domain/`, **lido seletivamente**: só o
+domínio que a mudança toca. Quem planeja lê o domínio e destila na spec; quem implementa nunca abre o
+diretório.
 
 **Garantia só está protegida se removê-la derrubar teste nomeado.** Critério de aceite que afirma uma
 recusa, uma restrição ou um guard passa por uma rodada de sabotagem: remove a proteção, roda a suíte
