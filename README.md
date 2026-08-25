@@ -3,7 +3,7 @@
 Instancia um fluxo de desenvolvimento guiado por especificação em qualquer projeto.
 
 ```bash
-npm create spec-flow
+npm create create-spec-flow
 ```
 
 Disponível em português e inglês — `--lang pt-BR` ou `--lang en`, ou escolha no prompt.
