@@ -1,5 +1,5 @@
 {
-  "name": "specflow",
+  "name": "create-spec-flow",
   "version": "0.1.0",
   "description": "Spec-driven development for coding agents, in one command. A queue of specified changes, a readiness gate before any file is written, size ceilings on what gets re-read every session, and guarantees proven by sabotage. pt-BR and English.",
   "keywords": [
@@ -8,24 +8,25 @@
     "claude-code",
     "agent",
     "scaffold",
-    "specification"
+    "specification",
+    "create-app"
   ],
   "license": "MIT",
   "author": "Felipe Barbosa (https://github.com/felipebdn)",
-  "homepage": "https://github.com/felipebdn/specflow#readme",
+  "homepage": "https://github.com/felipebdn/create-spec-flow#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/felipebdn/specflow.git"
+    "url": "git+https://github.com/felipebdn/create-spec-flow.git"
   },
   "bugs": {
-    "url": "https://github.com/felipebdn/specflow/issues"
+    "url": "https://github.com/felipebdn/create-spec-flow/issues"
   },
   "type": "module",
   "engines": {
     "node": ">=20.10"
   },
   "bin": {
-    "specflow": "bin/specflow.js"
+    "create-spec-flow": "bin/create-spec-flow.js"
   },
   "exports": {
     ".": "./src/init.js"

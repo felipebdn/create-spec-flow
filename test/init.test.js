@@ -3,13 +3,14 @@ import assert from 'node:assert/strict';
 import { mkdtemp, rm, mkdir, writeFile, readFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { execFile } from 'node:child_process';
 import { init, InitRefused } from '../src/init.js';
 import { TEMPLATE_ENTRIES, LANGUAGES } from '../src/manifest.js';
 
 let destino;
 
 beforeEach(async () => {
-  destino = await mkdtemp(join(tmpdir(), 'specflow-'));
+  destino = await mkdtemp(join(tmpdir(), 'create-spec-flow-'));
 });
 
 afterEach(async () => {
@@ -62,7 +63,7 @@ describe('init — o caminho comum', () => {
 
   test('não leva arquivo do próprio pacote para o projeto de quem instala', async () => {
     const { written } = await init({ target: destino });
-    for (const proibido of ['package.json', 'bin/specflow.js', 'src/init.js', 'README.md']) {
+    for (const proibido of ['package.json', 'bin/create-spec-flow.js', 'src/init.js', 'README.md']) {
       assert.ok(!written.includes(proibido), `vazou arquivo do pacote: ${proibido}`);
     }
     assert.ok(
@@ -88,7 +89,7 @@ describe('init — o caminho comum', () => {
       'o CLAUDE.md entregue não fala do fluxo — veio o arquivo errado',
     );
     assert.ok(
-      !texto.includes('specflow — instruções do repositório'),
+      !texto.includes('create-spec-flow — instruções do repositório'),
       'o CLAUDE.md do pacote vazou para o projeto de quem instala',
     );
   });
@@ -187,6 +188,45 @@ describe('init — idioma', () => {
     });
 
     assert.deepEqual(forma(en), forma(ptBR), 'as duas árvores de idioma divergiram em forma');
+  });
+});
+
+describe('linha de comando — as duas formas de invocação', () => {
+  const BIN = new URL('../bin/create-spec-flow.js', import.meta.url).pathname;
+  const run = (args) =>
+    new Promise((resolve) => {
+      execFile(process.execPath, [BIN, ...args], (erro, stdout) =>
+        resolve({ code: erro?.code ?? 0, stdout }),
+      );
+    });
+
+  test('`npm create spec-flow <dir>` — sem subcomando, o posicional é o diretório', async () => {
+    const alvo = join(destino, 'app');
+    await mkdir(alvo, { recursive: true });
+
+    const { code, stdout } = await run([alvo, '--yes']);
+
+    assert.equal(code, 0, `saiu ${code}: ${stdout}`);
+    assert.match(stdout, /19 arquivo\(s\) escritos/);
+    await readFile(join(alvo, 'CLAUDE.md'), 'utf8');
+  });
+
+  test('`create-spec-flow init <dir>` — a forma longa continua valendo', async () => {
+    const alvo = join(destino, 'app2');
+    await mkdir(alvo, { recursive: true });
+
+    const { code } = await run(['init', alvo, '--yes']);
+
+    assert.equal(code, 0);
+    await readFile(join(alvo, '.specs', 'README.md'), 'utf8');
+  });
+
+  test('a recusa por projeto já inicializado sai com 1 pelas duas formas', async () => {
+    const alvo = join(destino, 'app3');
+    await mkdir(join(alvo, '.specs'), { recursive: true });
+
+    assert.equal((await run([alvo, '--yes'])).code, 1);
+    assert.equal((await run(['init', alvo, '--yes'])).code, 1);
   });
 });
 

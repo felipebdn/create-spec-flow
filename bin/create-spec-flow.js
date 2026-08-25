@@ -5,9 +5,10 @@ import { stdin, stdout, argv, exit, cwd } from 'node:process';
 import { init, InitRefused, LANGUAGES, DEFAULT_LANGUAGE } from '../src/init.js';
 
 const USO = `
-specflow — instancia um fluxo de desenvolvimento guiado por especificação
+create-spec-flow — instancia um fluxo de desenvolvimento guiado por especificação
 
-  npx specflow init [diretório]
+  npm create spec-flow [diretório]
+  npx create-spec-flow init [diretório]
 
 Opções
   --lang <${Object.keys(LANGUAGES).join('|')}>   idioma do template (padrão: ${DEFAULT_LANGUAGE})
@@ -68,11 +69,15 @@ async function main() {
     return 0;
   }
 
-  const [comando = 'init', dir] = positionals;
-  if (comando !== 'init') {
-    stdout.write(`Comando desconhecido: ${comando}\n${USO}`);
-    return 2;
-  }
+  // `npm create spec-flow ./meu-app` invoca o pacote **sem** o subcomando: o primeiro posicional já
+  // é o diretório. `create-spec-flow init ./meu-app` traz os dois. Aceitar as duas formas é o que
+  // faz a mesma ferramenta servir aos dois caminhos de invocação.
+  //
+  // Posicional que não é `init` vale como diretório, e não como comando desconhecido. Com um comando
+  // só, "recusar o que não conheço" custaria mais do que entrega: recusaria justamente a forma que o
+  // `npm create` usa.
+  const [primeiro, segundo] = positionals;
+  const dir = primeiro === 'init' ? segundo : primeiro;
 
   // Sem TTY o prompt travaria para sempre num pipe ou numa esteira de CI.
   const interativo = Boolean(stdin.isTTY) && !opts.yes;

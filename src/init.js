@@ -6,7 +6,7 @@ import { TEMPLATE_ENTRIES, LANGUAGES, DEFAULT_LANGUAGE, languageRoot } from './m
  * Instala o fluxo em um projeto.
  *
  * Puro em relação à interface: não lê `process.argv`, não escreve em `stdout`, não pergunta nada.
- * Quem conversa com o usuário é `bin/specflow.js`. É o que torna as recusas testáveis sem simular
+ * Quem conversa com o usuário é `bin/create-spec-flow.js`. É o que torna as recusas testáveis sem simular
  * terminal.
  */
 export async function init({ target = process.cwd(), lang = DEFAULT_LANGUAGE, force = false } = {}) {

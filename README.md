@@ -1,9 +1,9 @@
-# specflow
+# create-spec-flow
 
 Instancia um fluxo de desenvolvimento guiado por especificação em qualquer projeto.
 
 ```bash
-npx specflow init
+npm create spec-flow
 ```
 
 Disponível em português e inglês — `--lang pt-BR` ou `--lang en`, ou escolha no prompt.
@@ -14,7 +14,7 @@ Contexto de agente morre no fim da sessão. Na sessão seguinte, a decisão que 
 minutos não existe mais, e o agente reconstrói por adivinhação — geralmente diferente. Ao longo de
 dez features, a arquitetura deriva sem ninguém ter decidido que devia derivar.
 
-O `specflow` põe esse contexto em arquivo, com regras que impedem os três jeitos conhecidos de o
+O `create-spec-flow` põe esse contexto em arquivo, com regras que impedem os três jeitos conhecidos de o
 registro apodrecer: spec escrita sem perguntar, arquivo crescendo até ninguém ler, e critério de
 aceite marcado sem ter sido verificado.
 
@@ -58,10 +58,12 @@ está protegida por teste nenhum — suíte verde não distingue "protegido" de 
 ## Uso
 
 ```bash
-npx specflow init                 # no diretório atual, perguntando o idioma
-npx specflow init ./meu-projeto   # em outro diretório
-npx specflow init --lang en --yes # sem perguntar nada
-npx specflow init --force         # instala por cima de um .specs/ existente
+npm create spec-flow                    # no diretório atual, perguntando o idioma
+npm create spec-flow ./meu-projeto      # em outro diretório
+npm create spec-flow -- --lang en --yes # sem perguntar nada
+npm create spec-flow -- --force         # instala por cima de um .specs/ existente
+
+npx create-spec-flow init               # a mesma coisa, pela forma longa
 ```
 
 O `init` **recusa** rodar onde já existe `.specs/`, e recusa se qualquer arquivo do template já

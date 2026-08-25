@@ -1,11 +1,11 @@
-# specflow — instruções do repositório
+# create-spec-flow — instruções do repositório
 
-Este repositório é o **pacote** `specflow`, que instala um fluxo de desenvolvimento guiado por
+Este repositório é o **pacote** `create-spec-flow`, que instala um fluxo de desenvolvimento guiado por
 especificação em outros projetos.
 
 > **Este arquivo é do pacote, não do template.** O `CLAUDE.md` que vai para o projeto de quem
 > instala mora em `template/pt-BR/CLAUDE.md` e `template/en/CLAUDE.md`. Editar um não edita o outro,
-> e é assim de propósito: as regras de construir o specflow não são as regras de usar o specflow.
+> e é assim de propósito: as regras de construir a ferramenta não são as regras de usar o fluxo que ela instala.
 
 ## O que este repositório não faz
 
@@ -20,7 +20,7 @@ foi exatamente o defeito que motivou tirar o template da raiz.
 ## Estrutura
 
 ```
-bin/specflow.js     conversa com o terminal — argv, prompt, mensagens, código de saída
+bin/create-spec-flow.js  conversa com o terminal — argv, prompt, mensagens, código de saída
 src/init.js         a operação; pura em relação à interface, não lê argv nem escreve em stdout
 src/copy.js         plano de cópia, recusas, cópia tudo-ou-nada
 src/manifest.js     o que se copia, e onde mora cada idioma
@@ -77,7 +77,7 @@ do arquivo inteiro a partir da primeira ocorrência.
   precisar do nome de um papel lê `LANGUAGES` em `src/manifest.js`.
 - **O que se copia é lista explícita** em `TEMPLATE_ENTRIES`, nunca regra de exclusão. Regra de
   exclusão erra por omissão, e o erro dela é vazar arquivo para o projeto de quem instala.
-- **`init` não conversa com o terminal.** Quem lê `argv` e escreve em `stdout` é `bin/specflow.js`.
+- **`init` não conversa com o terminal.** Quem lê `argv` e escreve em `stdout` é `bin/create-spec-flow.js`.
   É o que torna as recusas testáveis sem simular TTY.
 - **Toda recusa tem teste, e todo teste de recusa afirma que nada foi escrito.** Recusar depois de
   escrever metade é pior que não ter começado.
