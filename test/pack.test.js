@@ -88,4 +88,14 @@ describe('tarball publicado', () => {
   test('não publica os testes do próprio pacote', async () => {
     assert.ok(!(await listar()).some((p) => p.startsWith('test/')));
   });
+
+  test('não publica o lock de paridade', async () => {
+    // Metadado de desenvolvimento sobre os templates, não um template. Ele mora na raiz justamente
+    // para ficar fora daqui por consequência de `files`, e não por exceção escrita — exceção é o
+    // tipo de linha que alguém apaga sem entender.
+    assert.ok(
+      !(await listar()).some((p) => p.includes('PARITY.lock.json')),
+      'o lock de paridade voltou para o tarball — ele saiu de template/ para não estar aqui',
+    );
+  });
 });

@@ -52,7 +52,7 @@ Sem comparador semântico. Três camadas em `src/parity.js`, que medem o que **n
 |---|---|---|
 | **Forma** — árvore de títulos, blocos de código, linhas de tabela, checkboxes, nº de campos do frontmatter | seção, regra ou checkbox acrescentado de um lado só | reescrita dentro de um parágrafo |
 | **Número carregado** — dígito dentro de crase, prefixado por `~`, ou seguido de `%` | teto, código de status ou identificador trocado de um lado | qualquer coisa sem número |
-| **Lock de hash** — `template/PARITY.lock.json` | **tudo**, inclusive reescrita pura | nada — mas não diz *o quê* mudou |
+| **Lock de hash** — `PARITY.lock.json` | **tudo**, inclusive reescrita pura | nada — mas não diz *o quê* mudou |
 
 As duas primeiras dão o diagnóstico; a terceira é a rede. Nenhuma é redundante: uma reescrita que não
 mexe em título nem em número só existe para o lock.
