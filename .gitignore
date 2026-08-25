@@ -1,0 +1,30 @@
+# dependências
+node_modules/
+
+# artefato do npm pack
+*.tgz
+
+# configuração de máquina — a lista de permissões é de quem clonou, não do repositório
+.claude/settings.local.json
+
+# ruído de sistema e de editor
+.DS_Store
+*.log
+
+# --- reinclusões, e por que elas existem ---
+#
+# `CLAUDE.md` e `.claude/` costumam estar no gitignore **global** de quem trabalha com agentes, para
+# não versionar configuração pessoal de editor. Aqui eles são o produto: o pacote existe justamente
+# para distribuir um `CLAUDE.md` e um `.claude/skills/`.
+#
+# Sem as linhas abaixo, 17 arquivos somem do repositório em silêncio — e o `npm pack` **não** acusa,
+# porque o campo `files` do package.json não consulta gitignore nenhum. O tarball sairia correto e o
+# clone sairia quebrado.
+#
+# A ordem importa: o Git não reinclui um arquivo cujo diretório-pai está excluído, então o diretório
+# `.claude/` do template precisa ser reincluído antes do conteúdo dele.
+
+!CLAUDE.md
+!template/**/CLAUDE.md
+!template/**/.claude/
+!template/**/.claude/**

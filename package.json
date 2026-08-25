@@ -1,0 +1,34 @@
+{
+  "name": "specflow",
+  "version": "0.1.0",
+  "description": "Instancia um fluxo de desenvolvimento guiado por especificação — .specs/, skills de padrão e portão de prontidão — em qualquer projeto.",
+  "keywords": [
+    "spec-driven-development",
+    "sdd",
+    "claude-code",
+    "agent",
+    "scaffold",
+    "specification"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20.10"
+  },
+  "bin": {
+    "specflow": "bin/specflow.js"
+  },
+  "exports": {
+    ".": "./src/init.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "template"
+  ],
+  "scripts": {
+    "test": "node --test 'test/**/*.test.js'",
+    "pack:check": "npm pack --dry-run",
+    "i18n:sync": "node scripts/parity-lock.js"
+  }
+}
