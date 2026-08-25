@@ -57,6 +57,15 @@ Sem comparador semântico. Três camadas em `src/parity.js`, que medem o que **n
 As duas primeiras dão o diagnóstico; a terceira é a rede. Nenhuma é redundante: uma reescrita que não
 mexe em título nem em número só existe para o lock.
 
+**O lock não vê divergência que nasceu junta.** Ele guarda o hash do momento em que alguém declarou
+que os dois lados diziam a mesma coisa — se já diziam coisas diferentes naquele momento, a
+declaração congela a diferença. Só os sinais de forma pegam isso, e é por isso que eles precisam
+cobrir tudo que não se traduz.
+
+Medido: os dois `README.md` do template listavam as skills do fluxo, e o pt-BR ficou **dois itens
+atrás** do inglês por quatro versões publicadas. O lock não podia ver — nasceu sincronizado com a
+diferença. A forma não via porque item de lista não era sinal. Passou a ser.
+
 **Número soletrado fica de fora de propósito.** `3 dígitos` versus `three-digit` é tradução legítima,
 e foi o único falso positivo quando a regra era "todo dígito". A crase pode atravessar quebra de
 linha — prosa com wrap produz isso o tempo todo, e um extrator linha a linha desalinha o pareamento

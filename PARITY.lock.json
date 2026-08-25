@@ -6,6 +6,11 @@
       "ptSha": "5380ede6a363ba5d",
       "enSha": "76b15dfff995f13f"
     },
+    ".claude/skills/spec-adotar-contexto/SKILL.md": {
+      "en": ".claude/skills/spec-adopt-context/SKILL.md",
+      "ptSha": "e766167983eda451",
+      "enSha": "1cbb17283a91befb"
+    },
     ".claude/skills/spec-arquivar-mudanca/SKILL.md": {
       "en": ".claude/skills/spec-archive-change/SKILL.md",
       "ptSha": "de4d5574e5d694f6",
@@ -43,8 +48,8 @@
     },
     ".specs/README.md": {
       "en": ".specs/README.md",
-      "ptSha": "f4bbffcc3560bbe7",
-      "enSha": "6349579426122fc2"
+      "ptSha": "6430bdd6b8707734",
+      "enSha": "e4af6ebeba5a028a"
     },
     ".specs/archive/README.md": {
       "en": ".specs/archive/README.md",
@@ -98,8 +103,8 @@
     },
     "CLAUDE.md": {
       "en": "CLAUDE.md",
-      "ptSha": "f31578424bd8cb35",
-      "enSha": "2dbce2a1aac6975b"
+      "ptSha": "12e1d3174bcca85d",
+      "enSha": "6e2712b4a4793c38"
     }
   }
 }

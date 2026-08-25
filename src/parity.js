@@ -36,6 +36,8 @@ export const ROLE_NAMES = [
   ['spec-arquivar-mudanca', 'spec-archive-change'],
   ['spec-tetos-e-poda', 'spec-ceilings-and-pruning'],
   ['spec-nova-skill', 'spec-new-skill'],
+  ['spec-adotar-contexto', 'spec-adopt-context'],
+  ['spec-adotar-contexto', 'spec-adopt-context'],
 ];
 
 /** Traduz um caminho de pt-BR para o caminho equivalente em inglês. */
@@ -94,6 +96,10 @@ export function shape(text) {
     fences: (text.match(/^```/gm) ?? []).length,
     tableRows: (text.match(/^\|/gm) ?? []).length,
     checkboxes: (text.match(/^\s*- \[[ x]\]/gm) ?? []).length,
+    // Item de lista é sinal, e a ausência dele já custou: os dois READMEs listavam as skills do
+    // fluxo, e o pt-BR ficou dois itens atrás do inglês por versões seguidas sem nada acusar.
+    // Marcador só, sem checkbox — checkbox já tem contagem própria acima.
+    listItems: (text.match(/^\s*[-*+] (?!\[[ x]\])/gm) ?? []).length,
     frontmatterKeys,
   };
 }

@@ -51,6 +51,7 @@ Leia, nesta ordem:
 | Auditar o que foi feito | skill `spec-verificar-mudanca` |
 | Fechar mudança concluída | skill `spec-arquivar-mudanca` |
 | Congelar um padrão que se repete | skill `spec-nova-skill` |
+| Adotar o fluxo com contexto que já existe | skill `spec-adotar-contexto` |
 
 ## Estado atual
 

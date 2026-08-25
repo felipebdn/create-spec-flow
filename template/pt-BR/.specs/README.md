@@ -88,3 +88,6 @@ As skills em `.claude/skills/` são o "como fazer" operacional deste fluxo:
 - `spec-executar-mudanca` — implementa uma mudança já especificada.
 - `spec-verificar-mudanca` — confere implementação contra os critérios de aceite.
 - `spec-arquivar-mudanca` — move a mudança concluída e registra o aprendizado.
+- `spec-tetos-e-poda` — os tetos de tamanho e a disciplina de poda.
+- `spec-nova-skill` — congela um padrão que se repete numa skill nova.
+- `spec-adotar-contexto` — traz contexto que já existe para dentro do `.specs/`, sem perder nada.

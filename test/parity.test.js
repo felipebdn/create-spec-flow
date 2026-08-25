@@ -40,7 +40,7 @@ describe('paridade — nenhum arquivo órfão', () => {
 });
 
 describe('paridade — forma', () => {
-  test('a árvore de títulos, os blocos de código, as tabelas e os checkboxes batem', () => {
+  test('títulos, blocos, tabelas, checkboxes e itens de lista batem', () => {
     const divergentes = dados.rows
       .filter((r) => JSON.stringify(r.ptShape) !== JSON.stringify(r.enShape))
       .map((r) => {

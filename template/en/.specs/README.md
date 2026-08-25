@@ -89,3 +89,4 @@ The skills in `.claude/skills/` are the operational "how to" of this flow:
 - `spec-archive-change` — moves a finished change and promotes what it learned.
 - `spec-ceilings-and-pruning` — the size ceilings and the pruning discipline.
 - `spec-new-skill` — freezes a repeating pattern into a new skill.
+- `spec-adopt-context` — brings context that already exists into `.specs/`, without losing anything.

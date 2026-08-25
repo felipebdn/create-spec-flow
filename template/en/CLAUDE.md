@@ -49,6 +49,7 @@ Read, in this order:
 | Audit what was done | `spec-verify-change` skill |
 | Close a finished change | `spec-archive-change` skill |
 | Freeze a repeating pattern | `spec-new-skill` skill |
+| Adopt the flow with context that already exists | `spec-adopt-context` skill |
 
 ## Current state
 
