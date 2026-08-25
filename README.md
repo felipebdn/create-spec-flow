@@ -3,7 +3,7 @@
 Instancia um fluxo de desenvolvimento guiado por especificação em qualquer projeto.
 
 ```bash
-npm create create-spec-flow
+npx create-spec-flow
 ```
 
 Disponível em português e inglês — `--lang pt-BR` ou `--lang en`, ou escolha no prompt.
@@ -58,12 +58,11 @@ está protegida por teste nenhum — suíte verde não distingue "protegido" de 
 ## Uso
 
 ```bash
-npm create spec-flow                    # no diretório atual, perguntando o idioma
-npm create spec-flow ./meu-projeto      # em outro diretório
-npm create spec-flow -- --lang en --yes # sem perguntar nada
-npm create spec-flow -- --force         # instala por cima de um .specs/ existente
-
-npx create-spec-flow init               # a mesma coisa, pela forma longa
+npx create-spec-flow                     # no diretório atual, perguntando o idioma
+npx create-spec-flow ./meu-projeto       # em outro diretório
+npx create-spec-flow --lang en --yes     # sem perguntar nada
+npx create-spec-flow --force             # instala por cima de um .specs/ existente
+npx create-spec-flow init ./meu-projeto  # a mesma coisa, com o subcomando explícito
 ```
 
 O `init` **recusa** rodar onde já existe `.specs/`, e recusa se qualquer arquivo do template já
