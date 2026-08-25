@@ -26,13 +26,39 @@ Fix nothing here. Verification only reports; the fix is a separate step, with th
    not run, that alone is a high finding.
 4. Walk the acceptance criteria one by one and verify each independently of the test the implementer
    wrote.
-5. **Audit the sabotage record** — the section below.
+5. **Check the change's internal coherence** and **audit the sabotage record** — the two sections below.
 6. Check adherence to `.specs/shared/conventions.md`.
 7. Check whether `memory/` and `shared/` were updated when they should have been.
 8. Check the ceilings from the `spec-ceilings-and-pruning` skill — `wc -l` on `decisions.md`,
    `stack.md` and the change's `spec.md`, plus the acceptance-criteria count. A file over the ceiling
    is a **medium** severity finding: it breaks nothing today, and it makes every future session more
    expensive. You do not prune — you report, and pruning is due in the next `spec-new-change`.
+
+## Internal coherence of the change
+
+Before looking at code. `spec.md`, `plan.md` and `tasks.md` have to agree **with each other**, and
+the check is a cross-table — not a read-through.
+
+| Question | Severity when it fails |
+|---|---|
+| Does every acceptance criterion have a task that produces it? | **high** — a criterion with no task gets ticked by mistake or never closes |
+| Does every criterion that asserts a guarantee have a sabotage round, or a declaration with a reason? | **high** |
+| Does every task serve some criterion? | **medium** — what is left over is scope nobody asked for |
+| Does every file listed in `plan.md` have a task that touches it? | **medium** |
+| Does every `ACn` citation point at the criterion it describes? | **high** |
+
+**The first two questions are the direction people forget.** Checking that every `ACn` citation
+resolves is easy and passes green easily; checking that every criterion is **reached** by some task
+is the opposite direction, and that is where the hole lives. Measured: a review fixed `spec.md` and
+`plan.md` without going down to `tasks.md`, two criteria ended up with nothing producing them, and
+the citation check did not see it — they all existed.
+
+**Renumbering is what breaks the last one.** A citation to a criterion that **exists** but changed
+meaning survives any mechanical check, because the number resolves. Only re-reading the criterion's
+text catches it.
+
+**This is cheaper before implementing.** Run afterwards it still catches things — but the work was
+already done on top of an incoherent plan.
 
 ## Auditing the sabotage
 
