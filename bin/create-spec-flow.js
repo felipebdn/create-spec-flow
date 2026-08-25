@@ -4,17 +4,24 @@ import { createInterface } from 'node:readline/promises';
 import { stdin, stdout, argv, exit, cwd } from 'node:process';
 import { init, InitRefused, LANGUAGES, DEFAULT_LANGUAGE } from '../src/init.js';
 
+// A largura da coluna sai da opção mais longa, e não de espaços contados à mão: o rótulo de `--lang`
+// cresce com `LANGUAGES`, então padding fixo desalinha sozinho no dia em que entrar um terceiro
+// idioma — e ninguém revisa alinhamento de `--help`.
+const OPCOES = [
+  [`--lang <${Object.keys(LANGUAGES).join('|')}>`, `idioma do template (padrão: ${DEFAULT_LANGUAGE})`],
+  ['--force', 'sobrescreve arquivos existentes'],
+  ['--yes, -y', 'não pergunta nada; usa os padrões'],
+  ['--help, -h', 'esta mensagem'],
+];
+const COLUNA = Math.max(...OPCOES.map(([rotulo]) => rotulo.length)) + 2;
+
 const USO = `
 create-spec-flow — instancia um fluxo de desenvolvimento guiado por especificação
 
-  npm create spec-flow [diretório]
-  npx create-spec-flow init [diretório]
+  npx create-spec-flow [diretório]
 
 Opções
-  --lang <${Object.keys(LANGUAGES).join('|')}>   idioma do template (padrão: ${DEFAULT_LANGUAGE})
-  --force                       sobrescreve arquivos existentes
-  --yes, -y                     não pergunta nada; usa os padrões
-  --help, -h                    esta mensagem
+${OPCOES.map(([rotulo, texto]) => `  ${rotulo.padEnd(COLUNA)}${texto}`).join('\n')}
 
 O que é escrito no projeto
   CLAUDE.md          as regras que todo agente lê primeiro

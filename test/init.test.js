@@ -235,3 +235,29 @@ describe('manifesto', () => {
     assert.deepEqual(TEMPLATE_ENTRIES, ['CLAUDE.md', '.specs', '.claude/skills']);
   });
 });
+
+describe('--help', () => {
+  const BIN = new URL('../bin/create-spec-flow.js', import.meta.url).pathname;
+  const ajuda = () =>
+    new Promise((resolve) => {
+      execFile(process.execPath, [BIN, '--help'], (_e, stdout) => resolve(stdout));
+    });
+
+  test('mostra uma forma de invocação só, a mesma do README', async () => {
+    const texto = await ajuda();
+    assert.match(texto, /npx create-spec-flow \[diretório\]/);
+    assert.ok(
+      !texto.includes('npm create'),
+      'o --help voltou a mostrar `npm create`, que prefixa `create-` e confunde',
+    );
+  });
+
+  test('a coluna das opções é calculada, não contada à mão', async () => {
+    const linhas = (await ajuda()).split('\n').filter((l) => l.startsWith('  --'));
+    assert.ok(linhas.length >= 4, 'sumiram opções do --help');
+
+    // O rótulo de `--lang` cresce com LANGUAGES; padding fixo desalinharia ao entrar um idioma.
+    const colunas = new Set(linhas.map((l) => /^( {2}--.*?)( {2,})\S/.exec(l)[2].length + /^( {2}--.*?)( {2,})\S/.exec(l)[1].length));
+    assert.equal(colunas.size, 1, `descrições em colunas diferentes: ${[...colunas].sort()}`);
+  });
+});
