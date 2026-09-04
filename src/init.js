@@ -1,6 +1,10 @@
 import { resolve } from 'node:path';
-import { copyTemplate, alreadyInitialized, InitRefused } from './copy.js';
-import { TEMPLATE_ENTRIES, LANGUAGES, DEFAULT_LANGUAGE, languageRoot } from './manifest.js';
+import { copyTemplate, alreadyInitialized, InitRefused, installCodexAliases, codexAliasPaths, exists } from './copy.js';
+import { writeInstallManifest } from './upgrade.js';
+import {
+  TEMPLATE_ENTRIES, LANGUAGES, DEFAULT_LANGUAGE, languageRoot,
+  ORCHESTRATOR_PROFILES, DEFAULT_ORCHESTRATOR, templateFilter,
+} from './manifest.js';
 
 /**
  * Instala o fluxo em um projeto.
@@ -9,7 +13,10 @@ import { TEMPLATE_ENTRIES, LANGUAGES, DEFAULT_LANGUAGE, languageRoot } from './m
  * Quem conversa com o usuário é `bin/create-spec-flow.js`. É o que torna as recusas testáveis sem simular
  * terminal.
  */
-export async function init({ target = process.cwd(), lang = DEFAULT_LANGUAGE, force = false } = {}) {
+export async function init({
+  target = process.cwd(), lang = DEFAULT_LANGUAGE, force = false,
+  orchestrator = DEFAULT_ORCHESTRATOR,
+} = {}) {
   const destino = resolve(target);
 
   if (!LANGUAGES[lang]) {
@@ -18,6 +25,9 @@ export async function init({ target = process.cwd(), lang = DEFAULT_LANGUAGE, fo
       `Idioma desconhecido: ${lang}. Disponíveis: ${Object.keys(LANGUAGES).join(', ')}.`,
       { lang },
     );
+  }
+  if (!ORCHESTRATOR_PROFILES.includes(orchestrator)) {
+    throw new InitRefused('PERFIL_DESCONHECIDO', `Perfil desconhecido: ${orchestrator}.`, { orchestrator });
   }
 
   if ((await alreadyInitialized(destino)) && !force) {
@@ -28,14 +38,31 @@ export async function init({ target = process.cwd(), lang = DEFAULT_LANGUAGE, fo
     );
   }
 
+  if (!force) {
+    const aliasConflicts = [];
+    for (const rel of await codexAliasPaths(languageRoot(lang))) if (await exists(resolve(destino, rel))) aliasConflicts.push(rel);
+    if (aliasConflicts.length) {
+      throw new InitRefused('ARQUIVO_EXISTENTE', `${aliasConflicts.length} arquivo(s) já existem no destino. Nada foi escrito.`, { conflicts: aliasConflicts });
+    }
+  }
+
   const { written, overwritten } = await copyTemplate({
     from: languageRoot(lang),
     to: destino,
     entries: TEMPLATE_ENTRIES,
     force,
+    filter: templateFilter(orchestrator),
   });
 
-  return { target: destino, lang, written, overwritten };
+  const aliases = await installCodexAliases({ target: destino, written, force });
+  written.push(...aliases);
+  await writeInstallManifest({ target: destino, lang, orchestrator, files: written });
+  written.push('.specs/.create-spec-flow.json');
+
+  return { target: destino, lang, orchestrator, written: written.sort(), overwritten };
 }
 
-export { InitRefused, LANGUAGES, DEFAULT_LANGUAGE, TEMPLATE_ENTRIES };
+export {
+  InitRefused, LANGUAGES, DEFAULT_LANGUAGE, TEMPLATE_ENTRIES,
+  ORCHESTRATOR_PROFILES, DEFAULT_ORCHESTRATOR,
+};

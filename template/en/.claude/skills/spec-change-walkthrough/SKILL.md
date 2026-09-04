@@ -1,9 +1,11 @@
 ---
 name: spec-change-walkthrough
-description: Writes a change's closing walkthrough — what it closed, what order to review it in by risk, the decisions and the gotchas. Use when closing a change, after the criteria are ticked and before archiving.
+description: Writes a verified change's closing walkthrough — what it closed, what order to review it in by risk, the decisions and the gotchas. Use only after an approved verdict and before archiving.
 ---
 
 # Closing walkthrough
+
+Precondition: `status: verified` and an approved `review.md` for the current commit.
 
 It lives in `.specs/changes/NNN-slug/walkthrough.md`, and travels with the change into `archive/`.
 

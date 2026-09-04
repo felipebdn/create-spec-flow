@@ -30,6 +30,7 @@ export const ROLE_NAMES = [
   ['decisoes.md', 'decisions.md'],
   ['convencoes.md', 'conventions.md'],
   ['glossario.md', 'glossary.md'],
+  ['contratos', 'contracts'],
   ['spec-nova-mudanca', 'spec-new-change'],
   ['spec-executar-mudanca', 'spec-run-change'],
   ['spec-verificar-mudanca', 'spec-verify-change'],
@@ -38,7 +39,6 @@ export const ROLE_NAMES = [
   ['spec-nova-skill', 'spec-new-skill'],
   ['spec-adotar-contexto', 'spec-adopt-context'],
   ['spec-walkthrough-mudanca', 'spec-change-walkthrough'],
-  ['spec-adotar-contexto', 'spec-adopt-context'],
 ];
 
 /** Traduz um caminho de pt-BR para o caminho equivalente em inglês. */

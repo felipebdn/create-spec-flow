@@ -1,0 +1,11 @@
+{
+  "name": "create-spec-flow-mcp",
+  "version": "0.1.0",
+  "description": "Optional MCP orchestrator for create-spec-flow",
+  "type": "module",
+  "engines": { "node": ">=20.10" },
+  "bin": { "create-spec-flow-mcp": "bin/create-spec-flow-mcp.js" },
+  "exports": { ".": "./src/server.js", "./orchestrator": "./src/orchestrator.js" },
+  "files": ["bin", "src", "README.md"],
+  "dependencies": { "create-spec-flow": "^0.5.0" }
+}

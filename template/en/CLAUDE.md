@@ -9,8 +9,9 @@ Read, in this order:
 1. `.specs/README.md` — how the flow works.
 2. `.specs/memory/stack.md` — allowed technologies and commands.
 3. `.specs/memory/decisions.md` — architectural decisions already settled.
-4. `.specs/shared/` — code conventions and the domain glossary.
-5. `.specs/domain/` — **only the domain the task touches**, when there is one.
+4. `.specs/shared/conventions.md` and `.specs/shared/glossary.md`.
+5. `.specs/shared/contracts/` — **only the contract the task touches**, when there is one.
+6. `.specs/domain/` — **only the domain the task touches**, when there is one.
 
 ## Rules
 
@@ -33,6 +34,8 @@ Read, in this order:
   `spec-new-change` skill — whoever runs or archives checks and warns, never prunes.
 - **Validation is executed, not presumed.** Tick an acceptance criterion only after
   having actually verified it.
+- **Agents communicate through artifacts.** Execution writes `execution-report.md`; review writes
+  `review.md`; every attempt is also preserved under `runs/NNN/`.
 - **A guarantee is only protected if removing it drops a named test.** An acceptance
   criterion that asserts a refusal, a constraint, a validation or a guard goes through
   a sabotage round before being ticked, and the name of every test that fell goes into

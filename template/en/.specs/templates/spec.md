@@ -1,7 +1,9 @@
 ---
 id: NNN-slug
 title: "Readable title of the change"
-status: todo # todo | in-progress | done
+workflow_version: 2
+status: ready # ready | executing | awaiting-review | reviewing | changes-requested | verified | archive-approved | archived | blocked
+attempt: 0
 depends_on: [] # e.g. ["002-register-user"]
 created: YYYY-MM-DD
 ---
@@ -69,4 +71,5 @@ something that does not exist yet.
 ## References
 
 - `.specs/shared/conventions.md`
+- `.specs/shared/contracts/<area>.md`, when applicable
 - `.specs/memory/decisions.md`

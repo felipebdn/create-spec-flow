@@ -21,16 +21,18 @@ critério de aceite marcado sem ter sido verificado.
 ## O que ele escreve no seu projeto
 
 ```
-CLAUDE.md          as regras que todo agente lê primeiro
+CLAUDE.md          instruções para Claude Code
+AGENTS.md          instruções equivalentes para Codex
 .specs/
 ├── changes/       a fila de mudanças, numerada. Nasce vazia
 ├── archive/       o que já fechou, legível como histórico
 ├── memory/        decisões arquiteturais e stack — o que atravessa mudanças
-├── shared/        convenções de código e glossário de domínio
+├── shared/        convenções/glossário sempre lidos e contratos seletivos por área
 ├── domain/        regra de produto por domínio — lida seletivamente, sem teto
-├── templates/     os moldes de spec.md, plan.md e tasks.md
+├── templates/     specs, tarefas e contratos de execução/revisão
 └── EXECUTAR-TODAS.md   o orquestrador da fila
-.claude/skills/    as seis skills do fluxo
+.claude/skills/    skills para Claude Code
+.agents/skills/    aliases das mesmas skills para Codex
 ```
 
 Nada mais. Nenhum arquivo do próprio pacote, nenhuma configuração de máquina.
@@ -48,7 +50,8 @@ contexto do projeto, e qual vocabulário ele ia inventar. Não é pulável nem q
 
 **O custo de leitura decide onde a coisa mora.** Arquivo lido em toda sessão impõe o próprio tamanho
 a todo trabalho futuro, então tem teto: `spec.md` até ~600 linhas ou ~10 critérios de aceite,
-`memory/` e `shared/` até ~150 linhas. Estourou, parte a mudança ou poda a memória — na leitura, e só
+arquivos de `memory/` até ~150 linhas e convenções até ~400. Estourou, parte a mudança, poda a memória
+ou extrai um contrato seletivo — na leitura, e só
 na skill de planejamento, porque escolher o que sai exige contexto que quem executa não tem.
 
 Regra de produto não cabe nesse teto, e por isso mora em `domain/`, **lido seletivamente**: só o
@@ -66,13 +69,36 @@ está protegida por teste nenhum — suíte verde não distingue "protegido" de 
 npx create-spec-flow                     # no diretório atual, perguntando o idioma
 npx create-spec-flow ./meu-projeto       # em outro diretório
 npx create-spec-flow --lang en --yes     # sem perguntar nada
-npx create-spec-flow --force             # instala por cima de um .specs/ existente
+npx create-spec-flow --orchestrator none # skills individuais, sem fila
+npx create-spec-flow --orchestrator mcp  # configura artefatos para o companion MCP
+npx create-spec-flow upgrade --dry-run   # mostra uma atualização segura
+npx create-spec-flow doctor              # confere a instalação
+npx create-spec-flow --force             # reinstala, sobrescrevendo conscientemente
 npx create-spec-flow init ./meu-projeto  # a mesma coisa, com o subcomando explícito
 ```
 
 O `init` **recusa** rodar onde já existe `.specs/`, e recusa se qualquer arquivo do template já
 existir — sem escrever nenhum. Sobrescrever em silêncio apagaria trabalho que ninguém pediu para
 apagar.
+
+`upgrade` usa `.specs/.create-spec-flow.json` para atualizar apenas arquivos que continuam iguais ao
+template instalado. Customizações são preservadas; a nova versão vai para um diretório de conflitos
+para revisão manual.
+
+## Orquestração
+
+O perfil padrão `manual` instala o orquestrador Markdown. `none` deixa apenas as skills individuais.
+`mcp` adiciona `.specs/orchestrator.json` e habilita o companion opcional:
+
+```bash
+npx create-spec-flow-mcp configure --client claude --project . --yes
+npx create-spec-flow-mcp configure --client codex --project . --yes
+```
+
+Por padrão, Claude planeja, revisa e arquiva; Codex executa e remedia. Os papéis são configuráveis.
+Os agentes são processos frios e se comunicam por commits, `execution-report.md`, `review.md` e o
+histórico `runs/NNN/`. O MCP usa um worktree por mudança e para para aprovação humana da spec e do
+arquivamento.
 
 ## Depois de instalar
 
@@ -83,8 +109,8 @@ A primeira mudança entra pela skill `spec-nova-mudanca` (`spec-new-change` em i
 
 ## Feito para
 
-Claude Code, pela convenção de `CLAUDE.md` e `.claude/skills/`. O `.specs/` em si é markdown puro e
-serve a qualquer agente que consiga ler arquivo.
+Claude Code e Codex, com instruções próprias para cada cliente. O `.specs/` continua Markdown puro e
+serve a qualquer agente que consiga ler arquivos; o MCP é inteiramente opcional.
 
 ## Contribuindo
 

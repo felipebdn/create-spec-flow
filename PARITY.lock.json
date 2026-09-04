@@ -13,18 +13,18 @@
     },
     ".claude/skills/spec-arquivar-mudanca/SKILL.md": {
       "en": ".claude/skills/spec-archive-change/SKILL.md",
-      "ptSha": "0559aa6c7228a3c3",
-      "enSha": "448794c4b85b4846"
+      "ptSha": "08df43c4bcb8b2fb",
+      "enSha": "efeb49e3aea3934d"
     },
     ".claude/skills/spec-executar-mudanca/SKILL.md": {
       "en": ".claude/skills/spec-run-change/SKILL.md",
-      "ptSha": "8ea95498bf3a6789",
-      "enSha": "259acac5741185bc"
+      "ptSha": "8131e18a189750b1",
+      "enSha": "ad8f183f999afbe9"
     },
     ".claude/skills/spec-nova-mudanca/SKILL.md": {
       "en": ".claude/skills/spec-new-change/SKILL.md",
-      "ptSha": "8f4f0ccff9b70a37",
-      "enSha": "e7dc65f3d0ee6b2e"
+      "ptSha": "d65d3cb6637b2db4",
+      "enSha": "9b3aa60a2f9e16a3"
     },
     ".claude/skills/spec-nova-skill/SKILL.md": {
       "en": ".claude/skills/spec-new-skill/SKILL.md",
@@ -33,28 +33,28 @@
     },
     ".claude/skills/spec-tetos-e-poda/SKILL.md": {
       "en": ".claude/skills/spec-ceilings-and-pruning/SKILL.md",
-      "ptSha": "4f56aa01e60d1e38",
-      "enSha": "21ea53f49272b388"
+      "ptSha": "d9819aee1c113fe8",
+      "enSha": "30ae3bfe66f1735f"
     },
     ".claude/skills/spec-verificar-mudanca/SKILL.md": {
       "en": ".claude/skills/spec-verify-change/SKILL.md",
-      "ptSha": "b25198e2a1690842",
-      "enSha": "2555b0ffc68381bb"
+      "ptSha": "c51b6ff8d4ab18ab",
+      "enSha": "bcf0bdbbb759b1e6"
     },
     ".claude/skills/spec-walkthrough-mudanca/SKILL.md": {
       "en": ".claude/skills/spec-change-walkthrough/SKILL.md",
-      "ptSha": "1f262fe05d6f7364",
-      "enSha": "d1d024cbbe63ae9e"
+      "ptSha": "2ac76ba4029a360f",
+      "enSha": "d0051d7364ab7a81"
     },
     ".specs/EXECUTAR-TODAS.md": {
       "en": ".specs/RUN-ALL.md",
-      "ptSha": "b6ced9fbdd6cd759",
-      "enSha": "391cf7c8e87de363"
+      "ptSha": "ed747e0e6e69dc22",
+      "enSha": "41ffb189056ae3e4"
     },
     ".specs/README.md": {
       "en": ".specs/README.md",
-      "ptSha": "d8db0fa4750aa6fd",
-      "enSha": "efd94623e90d575d"
+      "ptSha": "3eed051812f7730c",
+      "enSha": "1eba5620c9d76b5e"
     },
     ".specs/archive/README.md": {
       "en": ".specs/archive/README.md",
@@ -63,8 +63,8 @@
     },
     ".specs/changes/README.md": {
       "en": ".specs/changes/README.md",
-      "ptSha": "77be0a792b937c8b",
-      "enSha": "7de010bc00cc51ee"
+      "ptSha": "f2134b3aea8b1a77",
+      "enSha": "68793ce96b5d0d7e"
     },
     ".specs/domain/README.md": {
       "en": ".specs/domain/README.md",
@@ -81,6 +81,16 @@
       "ptSha": "598981c390c7ad9b",
       "enSha": "44713e8ec1460f49"
     },
+    ".specs/orchestrator.json": {
+      "en": ".specs/orchestrator.json",
+      "ptSha": "fb3ea8ef8a66eef3",
+      "enSha": "fb3ea8ef8a66eef3"
+    },
+    ".specs/shared/contratos/README.md": {
+      "en": ".specs/shared/contracts/README.md",
+      "ptSha": "493405b7e1a6ec0b",
+      "enSha": "daea405c21e0f185"
+    },
     ".specs/shared/convencoes.md": {
       "en": ".specs/shared/conventions.md",
       "ptSha": "6121d8403673d476",
@@ -91,15 +101,25 @@
       "ptSha": "621422bea4f19bb3",
       "enSha": "cbe01b7a5874988f"
     },
+    ".specs/templates/execution-report.md": {
+      "en": ".specs/templates/execution-report.md",
+      "ptSha": "dcd6e27c99aa3ed5",
+      "enSha": "3f816907ea0df09f"
+    },
     ".specs/templates/plan.md": {
       "en": ".specs/templates/plan.md",
       "ptSha": "0918087f697a4b93",
       "enSha": "c8ac47d7e69657e7"
     },
+    ".specs/templates/review.md": {
+      "en": ".specs/templates/review.md",
+      "ptSha": "55d214d54aee5a84",
+      "enSha": "8985f13516cad55f"
+    },
     ".specs/templates/spec.md": {
       "en": ".specs/templates/spec.md",
-      "ptSha": "164c01c4a82c6f0c",
-      "enSha": "2d6e0a2030082ff6"
+      "ptSha": "267aa836d087687a",
+      "enSha": "eac6fe30ab98ad78"
     },
     ".specs/templates/tasks.md": {
       "en": ".specs/templates/tasks.md",
@@ -108,8 +128,8 @@
     },
     "CLAUDE.md": {
       "en": "CLAUDE.md",
-      "ptSha": "a49ca92c757bd6fd",
-      "enSha": "22cd56ed00ffba45"
+      "ptSha": "a907a9dc13add3ec",
+      "enSha": "1fb7753dc95c1ec0"
     }
   }
 }

@@ -14,10 +14,13 @@ Você está verificando, provavelmente, código que o próprio fluxo escreveu.
 Comece do princípio de que **algum** critério de aceite está marcado sem ter sido
 realmente verificado — é a falha mais comum deste tipo de fluxo. Ache qual.
 
-Não repare nada aqui. Verificação só relata; a correção é passo separado, com o
-usuário decidindo.
+Não repare nada aqui. Verificação só relata em `review.md`; a correção é passo separado, feito por
+um remediador frio quando o veredito for `changes-requested`.
 
 ## Procedimento
+
+Antes de ler código, transicione `awaiting-review` para `reviewing`. Revise exatamente o commit
+registrado em `execution-report.md`.
 
 1. Leia `spec.md` (critérios de aceite e requisitos) e `plan.md` (contratos e
    comandos de validação).
@@ -106,6 +109,9 @@ Estilo que não muda comportamento é sempre baixa. Não infle severidade para d
 peso ao relatório.
 
 ## Relatório
+
+Use o template `.specs/templates/review.md`, copie a tentativa para `runs/NNN/review.md` e termine
+com `verified`, `changes-requested` ou `blocked`. O revisor não altera código.
 
 Uma linha por achado:
 

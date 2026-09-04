@@ -17,3 +17,9 @@ Execution order by numeric prefix. Letter suffix when a feature is sliced into p
 sequence — `012a-dashboard-backend`, `012b-dashboard-frontend`.
 
 A finished change leaves here through the `spec-archive-change` skill, never by deletion.
+
+## Deferred without an owner
+
+Work deliberately outside current changes, but without its own identifier yet, lives here. Record
+the item, reason, and condition that turns it into a change. This is visibility, not commitment:
+when it gains an owner and criteria, remove it from here and use the normal gate.

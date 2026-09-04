@@ -14,9 +14,9 @@ its context by reading this directory.
 | `changes/` | The queue of numbered changes. Each folder is one unit of work specified before coding. |
 | `archive/` | Changes that are finished and verified. They leave the active queue but stay readable as a record of decisions. |
 | `memory/` | Context that spans changes: architectural decisions, chosen stack, constraints. |
-| `shared/` | Contracts and conventions several changes consume: naming, error shape, domain glossary. |
+| `shared/` | Always-read conventions and glossary; `shared/contracts/` holds selectively-read contracts by area. |
 | `domain/` | Product rules per domain, plus invariants and formulas. **Read selectively** — only the domain the change touches — and therefore with no ceiling. |
-| `templates/` | Molds for `spec.md`, `plan.md` and `tasks.md`. Every new change is born from these. |
+| `templates/` | Molds for `spec.md`, `plan.md`, `tasks.md`, `execution-report.md`, and `review.md`. |
 | `RUN-ALL.md` | The orchestrator. Runs the whole queue in order, validating between changes. |
 
 ## Anatomy of a change
@@ -26,6 +26,9 @@ its context by reading this directory.
 ├── spec.md    # WHAT and WHY — requirements and acceptance criteria. No code.
 ├── plan.md    # HOW — files touched, technical sequence, risks.
 ├── tasks.md   # EXECUTION — tickable checklist, plus the sabotage record.
+├── execution-report.md # Canonical result of the latest attempt.
+├── review.md  # Canonical audit of the executed commit.
+├── runs/NNN/  # Immutable report history per attempt.
 └── walkthrough.md  # CLOSING — risk-ordered synthesis, written when closing.
 ```
 
@@ -35,7 +38,8 @@ that fell. A green suite does not distinguish "protected" from "never tested" �
 is what closes that gap, and the test name is the only proof that survives, because the sabotage is
 undone before the commit.
 
-`status` lives in `spec.md`'s frontmatter: `todo`, `in-progress`, `done`.
+`status` lives in `spec.md`'s frontmatter: `ready`, `executing`, `awaiting-review`, `reviewing`,
+`changes-requested`, `verified`, `archive-approved`, `archived`, or `blocked`.
 
 ## Numbering convention
 

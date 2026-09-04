@@ -16,6 +16,7 @@ sem ninguém decidir que devia crescer.
 | `spec.md` de uma mudança | ~600 linhas **ou** ~10 critérios de aceite | parta em duas mudanças |
 | `memory/decisoes.md` | ~150 linhas | pode na próxima leitura |
 | `memory/stack.md` | ~150 linhas | pode na próxima leitura |
+| `shared/convencoes.md` | ~400 linhas | extraia contrato coerente por área |
 
 ## O teto do `spec.md` é duplo
 
@@ -34,13 +35,14 @@ os dois campos que fazem a mudança se sustentar sozinha; cortá-los custa um ci
 inteiro, não algumas linhas. Se o `spec.md` está grande, o excesso quase sempre é prosa já dita em
 outro lugar, ou escopo que pertence a outra mudança.
 
-## `.specs/domain/` não tem teto, e isso é decisão, não esquecimento
+## Contexto seletivo não tem teto global
 
 O teto existe porque o arquivo é lido em **toda** sessão. `domain/` é lido **seletivamente** — só o
 domínio que a mudança toca —, então o tamanho dele não é imposto a todo trabalho futuro. Um arquivo
 de domínio com 300 linhas custa nas poucas mudanças que o tocam, e nada nas outras.
 
-A contrapartida é a disciplina de leitura: quem lê `domain/` inteiro "por garantia" reintroduz
+A mesma regra vale para `shared/contratos/`. A contrapartida é a disciplina de leitura: quem lê
+essas árvores inteiras "por garantia" reintroduz
 exatamente o custo que a isenção pressupõe que não existe.
 
 ## A poda do `memory/`

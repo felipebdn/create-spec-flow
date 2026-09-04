@@ -16,6 +16,7 @@ without anyone deciding it should.
 | A change's `spec.md` | ~600 lines **or** ~10 acceptance criteria | split into two changes |
 | `memory/decisions.md` | ~150 lines | prune on the next read |
 | `memory/stack.md` | ~150 lines | prune on the next read |
+| `shared/conventions.md` | ~400 lines | extract a coherent contract by area |
 
 ## The `spec.md` ceiling is a double one
 
@@ -34,13 +35,14 @@ Those two fields are what make the change stand on its own; cutting them costs a
 cycle, not a few lines. If `spec.md` is big, the excess is almost always prose already stated
 elsewhere, or scope that belongs to another change.
 
-## `.specs/domain/` has no ceiling, and that is a decision, not an oversight
+## Selective context has no global ceiling
 
 The ceiling exists because the file is read in **every** session. `domain/` is read **selectively**
 — only the domain the change touches — so its size is not imposed on all future work. A 300-line
 domain file costs on the few changes that touch it, and nothing on the rest.
 
-The trade-off is reading discipline: whoever reads all of `domain/` "just in case" reintroduces
+The same rule applies to `shared/contracts/`. The trade-off is reading discipline: whoever reads
+all of those trees "just in case" reintroduces
 exactly the cost the exemption assumes is absent.
 
 ## Pruning `memory/`

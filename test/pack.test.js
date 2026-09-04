@@ -17,16 +17,14 @@ const run = promisify(execFile);
  * diretório que as contém estar nomeado em `files` do package.json.
  */
 describe('tarball publicado', () => {
-  let arquivos;
+  let arquivosPromise;
 
   async function listar() {
-    if (arquivos) return arquivos;
-    const { stdout } = await run('npm', ['pack', '--dry-run', '--json'], {
+    if (!arquivosPromise) arquivosPromise = run('npm', ['pack', '--dry-run', '--json'], {
       cwd: packageRoot,
       maxBuffer: 1024 * 1024 * 16,
-    });
-    arquivos = JSON.parse(stdout)[0].files.map((f) => f.path);
-    return arquivos;
+    }).then(({ stdout }) => JSON.parse(stdout)[0].files.map((f) => f.path));
+    return arquivosPromise;
   }
 
   test('traz o CLAUDE.md dos dois templates', async () => {

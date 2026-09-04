@@ -28,7 +28,7 @@ skill.
 
 ## 2. Check for blockers
 
-- `depends_on` naming a change that is not `done`: stop and say so.
+- `depends_on` naming a change that is not verified or archived: stop and say so.
 - An open question affecting a mandatory requirement: stop and ask. Do not guess.
 - An open question not affecting a mandatory requirement: continue with the most conservative option
   and record the assumption under **Execution notes**.
@@ -36,7 +36,8 @@ skill.
 
 ## 3. Mark the start
 
-`status: todo` becomes `status: in-progress` in `spec.md`.
+`status: ready` or `status: changes-requested` becomes `status: executing` in `spec.md`, and
+`attempt` is incremented.
 
 ## 4. Implement
 
@@ -63,8 +64,8 @@ explicitly what was left out and why.
 - Run the commands from "How to validate" in `plan.md`. Actually run them — do not assume they pass
   because the code looks right.
 - Check each acceptance criterion in `spec.md` and tick only the ones you verified.
-- If it fails: fix and run again, up to 3 attempts. If it persists, stop, leave it `in-progress` and
-  report the shortest decisive line of the error.
+- If it fails: fix and run again, up to 3 attempts. If it persists, stop, leave it `blocked`, record
+  `resume_from: executing`, and report the shortest decisive line of the error.
 
 A test you wrote yourself that passes does not prove the acceptance criterion was met — check the
 criterion, not the test.
@@ -88,10 +89,9 @@ Only with every acceptance criterion ticked:
 - **Execution notes** in `tasks.md`: deviations, assumptions, surprises.
 - A new decision that `spec.md` did not anticipate goes into `.specs/memory/decisions.md`.
 - A contract the next change will consume is promoted to `.specs/shared/`.
-- **Write the walkthrough** with the `spec-change-walkthrough` skill. It is where the change becomes
-  legible to whoever did not implement it — and where incoherence left by a fix shows up, because
-  explaining is a different lens from auditing.
-- `status: done` in `spec.md`.
+- Fill `execution-report.md` from its template and preserve the attempt under
+  `runs/NNN/execution-report.md`.
+- Set `status: awaiting-review` in `spec.md`. A walkthrough exists only after an approved review.
 - Do not archive. Archiving is the user's decision, through `spec-archive-change`.
 
 ## 8. Report

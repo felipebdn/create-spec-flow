@@ -17,3 +17,9 @@ Ordem de execução pelo prefixo numérico. Sufixo de letra quando uma feature �
 rodam em sequência — `012a-dashboard-backend`, `012b-dashboard-frontend`.
 
 Mudança concluída sai daqui pela skill `spec-arquivar-mudanca`, nunca por remoção.
+
+## Adiado sem dono
+
+Trabalho deliberadamente fora das mudanças atuais, mas ainda sem identificador próprio, fica aqui.
+Registre item, motivo e condição que o transforma em mudança. Isto é visibilidade, não compromisso:
+quando ganhar dono e critérios, remova daqui e passe pelo portão normal.

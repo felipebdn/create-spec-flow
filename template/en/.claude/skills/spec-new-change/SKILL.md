@@ -23,7 +23,7 @@ Read, so you do not specify against what already exists:
 4. `.specs/changes/` — the current queue, to find the next number and to spot overlap with a change
    that is already specified.
 
-If the request overlaps a change that is still `todo`, propose editing that one instead of creating a
+If the request overlaps a change that is still `ready`, propose editing that one instead of creating a
 new one, and wait for the answer.
 
 ### Prune `memory/` — here, and only here
@@ -146,6 +146,6 @@ decision only goes in there after it is settled with the user, and the place to 
 ## When you finish
 
 Report in one screen: the path created, a summary of the scope, what was left out, and the open
-questions that block execution. Do not mark anything as `in-progress`.
+questions that block execution. Do not mark anything as `executing`.
 
 If a decision settled at the gate, say that it went to `decisions.md` and which one it was.

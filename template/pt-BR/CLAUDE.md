@@ -10,8 +10,9 @@ Leia, nesta ordem:
 1. `.specs/README.md` — como o fluxo funciona.
 2. `.specs/memory/stack.md` — tecnologias e comandos permitidos.
 3. `.specs/memory/decisoes.md` — decisões arquiteturais já fechadas.
-4. `.specs/shared/` — convenções de código e glossário de domínio.
-5. `.specs/domain/` — **só o domínio que a tarefa toca**, quando houver.
+4. `.specs/shared/convencoes.md` e `.specs/shared/glossario.md`.
+5. `.specs/shared/contratos/` — **só o contrato que a tarefa toca**, quando houver.
+6. `.specs/domain/` — **só o domínio que a tarefa toca**, quando houver.
 
 ## Regras
 
@@ -36,6 +37,8 @@ Leia, nesta ordem:
   executa ou arquiva confere e avisa, nunca poda.
 - **Validação é executada, não presumida.** Marque um critério de aceite só
   depois de tê-lo verificado de fato.
+- **Agentes se comunicam por artefatos.** Execução escreve `execution-report.md`; revisão escreve
+  `review.md`; cada tentativa também é preservada em `runs/NNN/`.
 - **Garantia só está protegida se removê-la derrubar teste nomeado.** Critério de
   aceite que afirma uma recusa, restrição, validação ou guard passa pela rodada de
   sabotagem antes de ser marcado, e o nome de cada teste caído vai para o

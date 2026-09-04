@@ -14,13 +14,14 @@ como histórico. Nunca delete uma pasta de mudança.
 
 Não arquive sem todas estas:
 
-- [ ] `status: done` no `spec.md`.
+- [ ] `status: archive-approved` no `spec.md`, após aprovação humana explícita.
+- [ ] `review.md` tem veredito `approved` para o commit atual.
 - [ ] Todos os critérios de aceite marcados.
 - [ ] Todas as tarefas do `tasks.md` marcadas.
 - [ ] Toda garantia ou sabotada com teste nomeado, ou declarada sem rodada e com o motivo.
 - [ ] `walkthrough.md` escrito, com ordem de revisão por risco e verificação medida.
 - [ ] Nenhuma questão em aberto pendente.
-- [ ] Nenhuma outra mudança em `todo` declara `depende_de` esta e ainda precisa
+- [ ] Nenhuma outra mudança ativa declara `depende_de` esta e ainda precisa
       consultá-la ativamente (arquivar não quebra a dependência, mas confirme que
       a dependente já tem o contrato de que precisa em `shared/`).
 
@@ -51,6 +52,9 @@ e **avise no relatório** que a poda vence na próxima `spec-nova-mudanca`. Não
 acrescentar, e escolher o que sai é outra decisão. Ver skill `spec-tetos-e-poda`.
 
 ## Mover
+
+Antes de mover, troque o estado para `archived`. Se a operação falhar, restaure
+`archive-approved` e registre o bloqueio.
 
 ```bash
 mv .specs/changes/NNN-slug .specs/archive/NNN-slug

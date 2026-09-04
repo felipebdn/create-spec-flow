@@ -23,7 +23,7 @@ Leia, para não especificar contra o que já existe:
 4. `.specs/changes/` — a fila atual, para descobrir o próximo número e para
    detectar sobreposição com uma mudança já especificada.
 
-Se o pedido se sobrepõe a uma mudança existente que ainda está `todo`, proponha
+Se o pedido se sobrepõe a uma mudança existente que ainda está `ready`, proponha
 editar aquela em vez de criar uma nova, e espere a resposta.
 
 ### Podar o `memory/` — aqui, e só aqui
@@ -150,6 +150,6 @@ decisão só entra ali depois de fechada com o usuário, e o lugar de fechá-la 
 ## Ao terminar
 
 Reporte em uma tela: caminho criado, resumo do escopo, o que ficou fora, e as
-questões em aberto que bloqueiam a execução. Não marque nada como `in-progress`.
+questões em aberto que bloqueiam a execução. Não marque nada como `executing`.
 
 Se alguma decisão fechou no portão, diga que ela foi para o `decisoes.md` e qual foi.

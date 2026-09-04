@@ -30,9 +30,11 @@ describe('init — o caminho comum', () => {
       written.some((f) => f.startsWith('.claude/skills/')),
       'nenhuma skill foi escrita',
     );
+    assert.ok(written.includes('AGENTS.md'), 'AGENTS.md não foi escrito');
+    assert.ok(written.some((f) => f.startsWith('.agents/skills/')), 'nenhuma skill do Codex foi escrita');
   });
 
-  test('o EXECUTAR-TODAS.md e as seis skills do fluxo chegam no projeto', async () => {
+  test('o EXECUTAR-TODAS.md e as nove skills do fluxo chegam no projeto', async () => {
     const { written } = await init({ target: destino });
 
     assert.ok(written.includes('.specs/EXECUTAR-TODAS.md'));
@@ -193,6 +195,24 @@ describe('init — idioma', () => {
   });
 });
 
+describe('init — perfis de orquestração', () => {
+  test('none não instala fila nem configuração MCP', async () => {
+    const { written } = await init({ target: destino, orchestrator: 'none' });
+    assert.ok(!written.some((f) => /EXECUTAR-TODAS|RUN-ALL/.test(f)));
+    assert.ok(!written.includes('.specs/orchestrator.json'));
+  });
+
+  test('manual instala markdown e mcp adiciona configuração', async () => {
+    let result = await init({ target: destino, orchestrator: 'manual' });
+    assert.ok(result.written.includes('.specs/EXECUTAR-TODAS.md'));
+    assert.ok(!result.written.includes('.specs/orchestrator.json'));
+    await rm(destino, { recursive: true, force: true });
+    await mkdir(destino, { recursive: true });
+    result = await init({ target: destino, orchestrator: 'mcp' });
+    assert.ok(result.written.includes('.specs/orchestrator.json'));
+  });
+});
+
 describe('linha de comando — as duas formas de invocação', () => {
   const BIN = new URL('../bin/create-spec-flow.js', import.meta.url).pathname;
   const run = (args) =>
@@ -209,7 +229,7 @@ describe('linha de comando — as duas formas de invocação', () => {
     const { code, stdout } = await run([alvo, '--yes']);
 
     assert.equal(code, 0, `saiu ${code}: ${stdout}`);
-    assert.match(stdout, /22 arquivo\(s\) escritos/);
+    assert.match(stdout, /\d+ arquivo\(s\) escritos/);
     await readFile(join(alvo, 'CLAUDE.md'), 'utf8');
   });
 
@@ -247,7 +267,7 @@ describe('--help', () => {
 
   test('mostra uma forma de invocação só, a mesma do README', async () => {
     const texto = await ajuda();
-    assert.match(texto, /npx create-spec-flow \[diretório\]/);
+    assert.match(texto, /npx create-spec-flow \[init\] \[diretório\]/);
     assert.ok(
       !texto.includes('npm create'),
       'o --help voltou a mostrar `npm create`, que prefixa `create-` e confunde',

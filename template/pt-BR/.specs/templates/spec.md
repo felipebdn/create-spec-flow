@@ -1,7 +1,9 @@
 ---
 id: NNN-slug
 titulo: "Título legível da mudança"
-status: todo # todo | in-progress | done
+workflow_version: 2
+status: ready # ready | executing | awaiting-review | reviewing | changes-requested | verified | archive-approved | archived | blocked
+attempt: 0
 depende_de: [] # ex.: ["002-registrar-usuario"]
 criado_em: AAAA-MM-DD
 ---
@@ -64,4 +66,5 @@ questão em aberto, nunca como decisão.
 ## Referências
 
 - `.specs/shared/convencoes.md`
+- `.specs/shared/contratos/<area>.md`, quando aplicável
 - `.specs/memory/decisoes.md`

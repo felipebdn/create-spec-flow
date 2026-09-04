@@ -27,6 +27,18 @@ export const templateRoot = join(packageRoot, 'template');
  */
 export const TEMPLATE_ENTRIES = ['CLAUDE.md', '.specs', '.claude/skills'];
 
+export const ORCHESTRATOR_PROFILES = Object.freeze(['none', 'manual', 'mcp']);
+export const DEFAULT_ORCHESTRATOR = 'manual';
+
+/** Files omitted from profiles that deliberately do not install an orchestrator. */
+export function templateFilter(profile = DEFAULT_ORCHESTRATOR) {
+  return (rel) => {
+    if (profile === 'none' && /\.specs\/(EXECUTAR-TODAS|RUN-ALL)\.md$/.test(rel)) return false;
+    if (profile !== 'mcp' && rel === '.specs/orchestrator.json') return false;
+    return true;
+  };
+}
+
 /**
  * Os idiomas disponíveis, e o papel de cada arquivo cujo **nome** muda entre eles.
  *

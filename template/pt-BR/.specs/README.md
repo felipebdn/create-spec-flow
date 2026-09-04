@@ -15,9 +15,9 @@ reconstrói todo o contexto lendo este diretório.
 | `changes/` | Fila de mudanças numeradas. Cada pasta é uma unidade de trabalho especificada antes de codar. |
 | `archive/` | Mudanças concluídas e verificadas. Saem da fila ativa, mas continuam legíveis como histórico de decisões. |
 | `memory/` | Contexto que atravessa mudanças: decisões arquiteturais, stack escolhida, restrições. |
-| `shared/` | Contratos e convenções que várias mudanças consomem: nomenclatura, formato de erro, glossário de domínio. |
+| `shared/` | Convenções e glossário sempre lidos; `shared/contratos/` guarda contratos por área, lidos seletivamente. |
 | `domain/` | Regra de produto por domínio, mais invariantes e fórmulas. **Lido seletivamente** — só o domínio que a mudança toca — e por isso sem teto. |
-| `templates/` | Moldes de `spec.md`, `plan.md` e `tasks.md`. Toda mudança nova nasce daqui. |
+| `templates/` | Moldes de `spec.md`, `plan.md`, `tasks.md`, `execution-report.md` e `review.md`. |
 | `EXECUTAR-TODAS.md` | Orquestrador. Roda a fila inteira em ordem, com validação entre mudanças. |
 
 ## Anatomia de uma mudança
@@ -27,6 +27,9 @@ reconstrói todo o contexto lendo este diretório.
 ├── spec.md    # O QUÊ e o PORQUÊ — requisitos e critérios de aceite. Sem código.
 ├── plan.md    # O COMO — arquivos tocados, sequência técnica, riscos.
 ├── tasks.md   # A EXECUÇÃO — checklist marcável, mais o registro de sabotagem.
+├── execution-report.md # Resultado canônico da tentativa mais recente.
+├── review.md  # Auditoria canônica do commit executado.
+├── runs/NNN/  # Histórico imutável dos relatórios por tentativa.
 └── walkthrough.md  # O FECHAMENTO — síntese ordenada por risco, escrita ao fechar.
 ```
 
@@ -36,7 +39,8 @@ teste que caiu. Suíte verde não distingue "protegido" de "nunca testado" — a
 que fecha essa diferença, e o nome do teste é a única prova que sobrevive, porque a sabotagem é
 desfeita antes do commit.
 
-O `status` fica no frontmatter do `spec.md`: `todo`, `in-progress`, `done`.
+O `status` fica no frontmatter do `spec.md`: `ready`, `executing`, `awaiting-review`, `reviewing`,
+`changes-requested`, `verified`, `archive-approved`, `archived` ou `blocked`.
 
 ## Convenção de numeração
 

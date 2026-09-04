@@ -14,9 +14,13 @@ You are probably verifying code this very flow wrote. Start from the assumption 
 acceptance criterion is ticked without having actually been verified — it is the most common failure
 of this kind of flow. Find which one.
 
-Fix nothing here. Verification only reports; the fix is a separate step, with the user deciding.
+Fix nothing here. Verification only reports in `review.md`; correction is a separate step performed
+by a fresh remediator when the verdict is `changes-requested`.
 
 ## Procedure
+
+Before reading code, transition `awaiting-review` to `reviewing`. Review exactly the commit recorded
+in `execution-report.md`.
 
 1. Read `spec.md` (acceptance criteria and requirements) and `plan.md` (contracts and validation
    commands).
@@ -103,6 +107,9 @@ Sabotage the change planned for a criterion not yet met is not a finding: it is 
 Style that does not change behaviour is always low. Do not inflate severity to give the report weight.
 
 ## Report
+
+Use `.specs/templates/review.md`, copy the attempt to `runs/NNN/review.md`, and finish in `verified`,
+`changes-requested`, or `blocked`. The reviewer does not change code.
 
 One line per finding:
 

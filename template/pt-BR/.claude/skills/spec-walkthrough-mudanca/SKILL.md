@@ -1,9 +1,11 @@
 ---
 name: spec-walkthrough-mudanca
-description: Escreve o walkthrough de fechamento de uma mudança — o que fechou, em que ordem revisar por risco, as decisões e os gotchas. Use ao fechar uma mudança, depois de os critérios estarem marcados e antes de arquivar.
+description: Escreve o walkthrough de fechamento de uma mudança verificada — o que fechou, em que ordem revisar por risco, as decisões e os gotchas. Use somente depois do veredito aprovado e antes de arquivar.
 ---
 
 # Walkthrough de fechamento
+
+Pré-condição: `status: verified` e `review.md` aprovado para o commit atual.
 
 Mora em `.specs/changes/NNN-slug/walkthrough.md`, e viaja com a mudança para `archive/`.
 

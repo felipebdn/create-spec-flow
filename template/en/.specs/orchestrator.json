@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "profile": "mcp",
+  "roles": {
+    "planner": "claude",
+    "executor": "codex",
+    "reviewer": "claude",
+    "remediator": "codex",
+    "archiver": "claude"
+  },
+  "adapters": {
+    "claude": { "command": "claude", "args": ["--print", "--output-format", "json", "--no-session-persistence"] },
+    "codex": { "command": "codex", "args": ["exec", "--json", "--ephemeral", "--sandbox", "workspace-write", "-"] }
+  },
+  "limits": { "maxRemediationAttempts": 3, "timeoutMinutes": 30, "maxOutputBytes": 1048576 }
+}

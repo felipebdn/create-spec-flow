@@ -27,7 +27,7 @@ os números e o porquê da assimetria estão na skill `spec-tetos-e-poda`.
 
 ## 2. Checar bloqueios
 
-- `depende_de` com alguma mudança que não está `done`: pare e avise.
+- `depende_de` com alguma mudança que não está verificada ou arquivada: pare e avise.
 - Questão em aberto que afeta requisito obrigatório: pare e pergunte. Não
   adivinhe.
 - Questão em aberto que não afeta requisito obrigatório: siga com a opção mais
@@ -37,7 +37,8 @@ os números e o porquê da assimetria estão na skill `spec-tetos-e-poda`.
 
 ## 3. Marcar início
 
-`status: todo` vira `status: in-progress` no `spec.md`.
+`status: ready` ou `status: changes-requested` vira `status: executing` no `spec.md`, e `attempt`
+é incrementado.
 
 ## 4. Implementar
 
@@ -66,7 +67,7 @@ todo o resto por completo e diga explicitamente o que ficou de fora e por quê.
   que passa porque o código parece certo.
 - Confira cada critério de aceite do `spec.md` e marque só os que você verificou.
 - Falhou: corrija e rode de novo, até 3 tentativas. Persistindo, pare, deixe em
-  `in-progress` e relate a linha decisiva do erro.
+  `blocked`, registre `resume_from: executing` e relate a linha decisiva do erro.
 
 Teste que você mesmo escreveu e que passa não prova que o critério de aceite foi
 atendido — confira o critério, não o teste.
@@ -90,10 +91,9 @@ Só com todos os critérios de aceite marcados:
 - **Notas de execução** no `tasks.md`: desvios, suposições, surpresas.
 - Decisão nova que o `spec.md` não previa vai para `.specs/memory/decisoes.md`.
 - Contrato que a próxima mudança vai consumir sobe para `.specs/shared/`.
-- **Escreva o walkthrough** pela skill `spec-walkthrough-mudanca`. É onde a mudança vira legível
-  para quem não a implementou — e onde incoerência deixada por correção aparece, porque explicar é
-  lente diferente de auditar.
-- `status: done` no `spec.md`.
+- Preencha `execution-report.md` pelo template e preserve a tentativa em
+  `runs/NNN/execution-report.md`.
+- `status: awaiting-review` no `spec.md`. Walkthrough só existe depois de revisão aprovada.
 - Não arquive. Arquivamento é decisão do usuário, via `spec-arquivar-mudanca`.
 
 ## 8. Reportar

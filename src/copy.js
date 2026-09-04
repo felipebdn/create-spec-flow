@@ -1,4 +1,4 @@
-import { readdir, mkdir, copyFile, stat } from 'node:fs/promises';
+import { readdir, mkdir, copyFile, stat, readFile, writeFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 
 /** Erro de domínio do scaffolder. Distingue recusa esperada de defeito do programa. */
@@ -48,12 +48,12 @@ async function listFiles(root, entry) {
  * conflito no meio da escrita deixaria o projeto do usuário com metade do template dentro, que é
  * pior que não ter começado.
  */
-export async function planCopy({ from, to, entries }) {
+export async function planCopy({ from, to, entries, filter = () => true }) {
   const plan = [];
   const conflicts = [];
 
   for (const entry of entries) {
-    for (const arquivo of await listFiles(from, entry)) {
+    for (const arquivo of (await listFiles(from, entry)).filter(filter)) {
       const destino = join(to, arquivo);
       if (await exists(destino)) conflicts.push(arquivo);
       else plan.push({ from: join(from, arquivo), to: destino, rel: arquivo });
@@ -69,8 +69,8 @@ export async function planCopy({ from, to, entries }) {
  * `force` sobrescreve, e existe porque reinstalar por cima é caso legítimo — mas ele nunca é o
  * padrão: sobrescrever em silêncio apaga trabalho que ninguém pediu para apagar.
  */
-export async function copyTemplate({ from, to, entries, force = false }) {
-  const { plan, conflicts } = await planCopy({ from, to, entries });
+export async function copyTemplate({ from, to, entries, force = false, filter }) {
+  const { plan, conflicts } = await planCopy({ from, to, entries, filter });
 
   if (conflicts.length > 0 && !force) {
     throw new InitRefused(
@@ -90,6 +90,35 @@ export async function copyTemplate({ from, to, entries, force = false }) {
   }
 
   return { written: todos.map((i) => i.rel).sort(), overwritten: force ? conflicts.sort() : [] };
+}
+
+/** Installs Codex aliases from the agent-neutral Claude source without duplicating templates. */
+export async function codexAliasPaths(from) {
+  return ['AGENTS.md', ...(await listFiles(from, '.claude/skills')).map((rel) => rel.replace('.claude/skills/', '.agents/skills/'))];
+}
+
+export async function installCodexAliases({ target, written, force = false }) {
+  const aliases = [];
+  const claude = join(target, 'CLAUDE.md');
+  if (await exists(claude)) {
+    const destination = join(target, 'AGENTS.md');
+    if (force || !(await exists(destination))) {
+      const text = (await readFile(claude, 'utf8')).replaceAll('.claude/skills/', '.agents/skills/');
+      await writeFile(destination, text);
+      aliases.push('AGENTS.md');
+    }
+  }
+
+  for (const rel of written.filter((item) => item.startsWith('.claude/skills/'))) {
+    const destinationRel = rel.replace('.claude/skills/', '.agents/skills/');
+    const destination = join(target, destinationRel);
+    if (!force && await exists(destination)) continue;
+    await mkdir(join(destination, '..'), { recursive: true });
+    const text = (await readFile(join(target, rel), 'utf8')).replaceAll('.claude/skills/', '.agents/skills/');
+    await writeFile(destination, text);
+    aliases.push(destinationRel);
+  }
+  return aliases;
 }
 
 /**

@@ -1,11 +1,13 @@
 {
   "name": "create-spec-flow",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Spec-driven development for coding agents, in one command. A queue of specified changes, a readiness gate before any file is written, size ceilings on what gets re-read every session, and guarantees proven by sabotage. pt-BR and English.",
   "keywords": [
     "spec-driven-development",
     "sdd",
     "claude-code",
+    "codex",
+    "mcp",
     "agent",
     "scaffold",
     "specification",
@@ -29,15 +31,20 @@
     "create-spec-flow": "bin/create-spec-flow.js"
   },
   "exports": {
-    ".": "./src/init.js"
+    ".": "./src/init.js",
+    "./workflow": "./src/workflow.js",
+    "./upgrade": "./src/upgrade.js"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "files": [
     "bin",
     "src",
     "template"
   ],
   "scripts": {
-    "test": "node --test 'test/**/*.test.js'",
+    "test": "node --test 'test/**/*.test.js' 'packages/mcp/test/**/*.test.js'",
     "pack:check": "npm pack --dry-run",
     "i18n:sync": "node scripts/parity-lock.js"
   }
